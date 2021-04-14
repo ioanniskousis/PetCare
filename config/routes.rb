@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :treatment_photos
   resources :treatments
   resources :pet_images
   root "home#index"

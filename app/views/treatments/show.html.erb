@@ -1,4 +1,60 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Item:</strong>
+  <%= @treatment.item %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @treatment.description %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @treatment.cost %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @treatment.location %>
+</p>
+
+<p>
+  <strong>Photos:</strong>
+</p>
+<p>
+  <% @treatment.treatment_photos.each do |treatment_photo| %>
+    <% if treatment_photo.photo.persisted? %>
+      <%= image_tag treatment_photo.photo.variant(resize_to_limit: [150, nil]) %>
+      <%= treatment_photo.description %>
+      <hr/>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <%= form_for(@treatment_photo) do |form| %>
+    <%= form.hidden_field :treatment_id %>
+
+    <div class="field">
+      <%= form.label :photo, "Add New Photo" %>
+      <%= form.file_field :photo, {id: "select_image"} %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_field :description %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit("Save New Photo", {id: "save_image"}) %>
+    </div>
+  <% end %>
+
+</p>
+
+<br/>
+
 <%= link_to 'Edit', edit_treatment_path(@treatment) %> |
-<%= link_to 'Back', treatments_path %>
+<%= link_to 'Back to ' + @treatment.pet.name + ' treatment', pet_treatments_path(@treatment.pet) %>

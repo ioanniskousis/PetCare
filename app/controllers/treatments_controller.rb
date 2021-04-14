@@ -27,7 +27,7 @@ class TreatmentsController < ApplicationController
 
     respond_to do |format|
       if @treatment.save
-        format.html { redirect_to pet_treatments_path(@treatment.pet), notice: "Treatment was successfully created." }
+        format.html { redirect_to treatment_path(@treatment), notice: "Treatment was successfully created." }
         format.json { render :show, status: :created, location: @treatment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -62,6 +62,9 @@ class TreatmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_treatment
       @treatment = Treatment.find(params[:id])
+      @treatment.treatment_photos.build
+      @treatment_photo = @treatment.treatment_photos.new
+      @treatment_photo.description = "Default description"
     end
 
     # Only allow a list of trusted parameters through.

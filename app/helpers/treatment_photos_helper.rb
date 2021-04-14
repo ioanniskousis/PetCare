@@ -1,0 +1,2 @@
+module TreatmentPhotosHelper
+end
