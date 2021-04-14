@@ -1,0 +1,5 @@
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.firstname + ' ' + user.surname + ' ' + user.email %></li>
+  <% end %>
+</ul>

@@ -3,7 +3,7 @@ class PetsController < ApplicationController
 
   # GET /pets or /pets.json
   def index
-    @pets = Pet.all
+    @pets = getPets(params)
   end
 
   # GET /pets/1 or /pets/1.json
@@ -12,7 +12,9 @@ class PetsController < ApplicationController
 
   # GET /pets/new
   def new
-    @pet = Pet.new
+    @owner = User.find(params[:owner])
+    # @notice = @owner.firstname
+    @pet = @owner.pets.new
   end
 
   # GET /pets/1/edit
@@ -64,6 +66,16 @@ class PetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_params
-      params.fetch(:pet, {})
+      params.require(:pet).permit(:name, :race, :breed, :color, :dateOfBirth, :gender, :sterilised, :description, :user_id)
+    end
+
+
+    def getPets(params)
+      if params[:owner]
+        @owner = User.find(params[:owner])
+        @owner.pets
+      else
+        Pet.all
+      end
     end
 end

@@ -11,6 +11,29 @@
   </head>
 
   <body>
+    <% if @notice %>
+      <p class="notice"><%= @notice %></p>
+      <hr/>
+    <% end %>
+
+    <div class="top-bar">
+      <%= link_to "Home", root_path %>
+      <% if current_user %>
+        <%= link_to "Users", users_path, method: :get %>
+      <% end %>
+    </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
+
+    <br/><br/>
+  
+    <% if current_user %>
+     <%= button_to "logout", destroy_user_session_path, method: :delete %><br/>
+    <% end %>
+  
   </body>
 </html>

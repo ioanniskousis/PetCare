@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Pets</h1>
+<% if @owner %>
+  <h1><%= @owner.firstname + ' ' + @owner.surname %></h1>
+<% end %>
 
 <table>
   <thead>
@@ -12,6 +13,7 @@
   <tbody>
     <% @pets.each do |pet| %>
       <tr>
+        <td><%= pet.name %></td>
         <td><%= link_to 'Show', pet %></td>
         <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
         <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Pet', new_pet_path %>
+<%= link_to 'New Pet', new_pet_path(owner: @owner) %>

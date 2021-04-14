@@ -62,4 +62,27 @@ div.actions {
   list-style: square; }
 
 label {
-  display: block; }
+  display: block;
+}
+
+.top-bar {
+  height: 40px;
+  background-color: #379;
+  font-size: large;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.top-bar a {
+  display: block;
+  color: #eee;
+  margin: 0 4px;
+
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
+.top-bar a:hover {
+  background-color: #59f;
+} 
