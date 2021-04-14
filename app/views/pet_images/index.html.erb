@@ -19,7 +19,7 @@
         </td>
         <td><%= link_to 'Show', pet_image %></td>
         <td><%= link_to 'Edit', edit_pet_image_path(pet_image) %></td>
-        <td><%= link_to 'Destroy', pet_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', pet_image_path(id: pet_image,  pet_id: @pet), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,3 +28,4 @@
 <br>
 
 <%= link_to 'New Pet Image', new_pet_image_path %>
+<%= link_to 'Back to ' + @pet.name, pet_path(@pet) %>

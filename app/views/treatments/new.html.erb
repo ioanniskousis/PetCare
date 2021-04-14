@@ -1,0 +1,6 @@
+<h1>New Treatment</h1>
+<h2>for <%= @pet.name %></h2>
+
+<%= render 'form', treatment: @treatment %>
+
+<%= link_to 'Back', pet_treatments_path(pet_id: @pet) %>

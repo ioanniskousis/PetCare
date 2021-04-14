@@ -61,11 +61,16 @@
 </p>
 
 <hr/>
-
 <p>
-  <strong>Photos Count:</strong>
-  <%= link_to @pet.pet_images.count, pet_pet_images_path(@pet) %>
+  <strong>Treatment:</strong>
+  <%= link_to 'Show Treatment', pet_treatments_path(@pet) %>
 </p>
+<p>
+  <strong>
+  <%= link_to 'Photos:' + ' ' + @pet.pet_images.count.to_s, pet_pet_images_path(pet_id: @pet) %>
+  </strong>
+</p>
+
 
 <% @pet.pet_images.each do |image| %>
   <% if image.photo.persisted? %>
