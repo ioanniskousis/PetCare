@@ -62,11 +62,14 @@ class PetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
       @pet = Pet.find(params[:id])
+      @pet.pet_images.build
+      @pet_image = @pet.pet_images.new
+      @pet_image.description = "Default description"
     end
 
     # Only allow a list of trusted parameters through.
     def pet_params
-      params.require(:pet).permit(:name, :race, :breed, :color, :dateOfBirth, :gender, :sterilised, :description, :user_id)
+      params.require(:pet).permit(:name, :species, :race, :breed, :color, :dateOfBirth, :gender, :sterilised, :description, :user_id)
     end
 
 

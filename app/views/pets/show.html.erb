@@ -1,2 +1,105 @@
+<h1>Pet Details</h1>
+
+<p>
+<strong>Name:</strong>
+<%= @pet.name %>
+</p>
+
+<p>
+<strong>species:</strong>
+<%= @pet.species %>
+</p>
+
+<p>
+<strong>race:</strong>
+<%= @pet.race %>
+</p>
+
+<p>
+<strong>breed:</strong>
+<%= @pet.breed %>
+</p>
+
+<p>
+<strong>color:</strong>
+<%= @pet.color %>
+</p>
+
+<p>
+<strong>dateOfBirth:</strong>
+<%= @pet.dateOfBirth %>
+</p>
+
+<p>
+<strong>gender:</strong>
+<%= @pet.gender %>
+</p>
+
+<p>
+<strong>sterilised:</strong>
+<%= @pet.sterilised %>
+</p>
+
+<p>
+<strong>description:</strong>
+<%= @pet.description %>
+</p>
+
+<p>
+<strong>created_at:</strong>
+<%= @pet.created_at %>
+</p>
+
+<p>
+<strong>updated_at:</strong>
+<%= @pet.updated_at %>
+</p>
+
+<p>
+<strong>user_id:</strong>
+<%= @pet.user_id %>
+</p>
+
+<hr/>
+
+<p>
+  <strong>Photos Count:</strong>
+  <%= link_to @pet.pet_images.count, pet_pet_images_path(@pet) %>
+</p>
+
+<% @pet.pet_images.each do |image| %>
+  <% if image.photo.persisted? %>
+    <%= link_to pet_image_path(image) do %>
+      <%= image_tag image.photo.variant(resize_to_limit: [150, nil]) %>
+    <% end %>
+    <%= image.description %>
+    <hr/>
+  <% end %>
+<% end %>
+
+<p>
+  <%= form_for(@pet_image) do |form| %>
+    <%= form.hidden_field :pet_id %>
+
+    <div class="field">
+      <%= form.label :photo, "Add New Photo" %>
+      <%= form.file_field :photo, {id: "select_image"} %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_field :description %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit("Save New Photo", {id: "save_image"}) %>
+    </div>
+  <% end %>
+
+</p>
+
+<br/><br/>
+<hr/>
+
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>
