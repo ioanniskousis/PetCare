@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  datetime: 2021-04-15 09:08:19
+  title: MyString
+  content: MyText
+  location: MyString
+  done: false
+
+two:
+  user: two
+  datetime: 2021-04-15 09:08:19
+  title: MyString
+  content: MyText
+  location: MyString
+  done: false
