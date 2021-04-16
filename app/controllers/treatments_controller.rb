@@ -3,8 +3,15 @@ class TreatmentsController < ApplicationController
 
   # GET /treatments or /treatments.json
   def index
-    @pet = Pet.find(params[:pet_id])
-    @treatments = @pet.treatments
+    if params[:pet_id]
+      @pet = Pet.find(params[:pet_id])
+      @user = @pet.owner
+      @treatments = @pet.treatments
+    else
+      @user = User.find(params[:user_id])
+      @treatments = @user.treatments
+    end
+    
   end
 
   # GET /treatments/1 or /treatments/1.json
@@ -13,8 +20,15 @@ class TreatmentsController < ApplicationController
 
   # GET /treatments/new
   def new
-    @pet = Pet.find(params[:pet_id])
-    @treatment = @pet.treatments.new
+    if params[:pet_id]
+      @pet = Pet.find(params[:pet_id])
+      @user = @pet.owner
+      @treatment = @pet.treatments.new
+      @treatment.user = @user
+    else
+      @user = User.find(params[:user_id])
+      @treatment = @user.treatments.new
+    end
   end
 
   # GET /treatments/1/edit
@@ -69,6 +83,6 @@ class TreatmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def treatment_params
-      params.require(:treatment).permit(:pet_id, :item, :description, :cost, :location)
+      params.require(:treatment).permit(:pet_id, :user_id, :item, :description, :cost, :location)
     end
 end

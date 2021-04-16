@@ -26,11 +26,20 @@
   height: calc(100% - 40px);
   width: 100%;
   max-width: 800px;
-  /* background-color: rgba(30, 50, 90, 0.1); */
+  background-color: rgba(30, 50, 90, 0.1);
 }
 
 .home-central h1 {
   margin: 0;
+}
+
+.home-inner {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 20px;
+  background-color: rgba(30, 50, 90, 0.2);
 }
 
 .home-page-link-container {
@@ -86,7 +95,7 @@
   /* color: white; */
   color: #359;
   /* text-shadow: 2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black; */
-  margin-bottom: -60px;
+  margin-bottom: -40px;
 }
 
 .home-page-link-ToMyPets {
@@ -94,6 +103,29 @@
 
 }
 
-.home-page-link-ToMyAppointments {
+.home-page-link-ToMyTreatments {
   background-image: url('vet-1.jpg');
+}
+
+.home-page-link-ToMyAppointments {
+  background-image: url('pet-appointments.jpg');
+}
+
+.main-header {
+  display: block;
+  padding: 10px;
+  color: #359;
+  text-align: center;
+  /* background-color: lemonchiffon; */
+}
+
+
+.home-central input[type="text"],
+input[type="email"],
+input[type="password"] {
+  margin-bottom: 20px;
+}
+
+.home-central input[type="submit"] {
+  width: 100%;
 }

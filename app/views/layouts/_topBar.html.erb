@@ -1,10 +1,13 @@
 <div class="top-bar">
   <div class="top-bar-left">
     <%= image_tag("pet-icon-home.png", alt: "pet-foot-logo.png", class: 'home-image') %>
-    <%= link_to "Home", root_path %>
+    <%= linkToHome %>
     <%= linkToUsers %>
   </div>
   <div class="top-bar-right">
     <%= logoutButton %>
+    <%= linkToForgot %>
+    <%= linkToLogIn %>
+    <%= linkToSignUp %>
   </div>
 </div>

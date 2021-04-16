@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @pet.name %>: Treatments</h1>
+<% if @pet %>
+  <h1><%= @pet.name %>: Treatments</h1>
+<% else %>
+  <h1><%= @user.fullname %>: All Pets Treatments</h1>
+<% end %>
 
 <table>
   <thead>
@@ -31,4 +35,8 @@
 <br>
 
 <%= link_to 'New Treatment', new_treatment_path(pet_id: @pet) %>
-<%= link_to 'Back to ' + @pet.name, pet_path(@pet) %>
+<% if @pet %>
+  <%= link_to 'Back to ' + @pet.name, pet_path(@pet) %>
+<% else %>
+  <%= link_to 'Back Home ', root_path %>
+<% end %>
