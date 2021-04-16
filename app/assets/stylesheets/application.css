@@ -13,3 +13,87 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&family=Varela+Round&display=swap');
+
+.home-image {
+  height: 100%;
+}
+
+.home-central {
+  margin: auto;
+  height: calc(100% - 40px);
+  width: 100%;
+  max-width: 800px;
+  /* background-color: rgba(30, 50, 90, 0.1); */
+}
+
+.home-central h1 {
+  margin: 0;
+}
+
+.home-page-link-container {
+  /* background-color: palegoldenrod; */
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  /* height: 200px; */
+  /* margin: 0 0 20px 0; */
+  padding: 20px 0 0 0;
+  /* overflow: hidden; */
+}
+
+.home-page-link-button {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* border: 2px solid khaki; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 240px;
+  min-width: 240px;
+  border-radius: 50%;
+  box-shadow: 0 0 18px 2px rgba(128, 128, 128, 0.7) inset;
+  /* background-color: lemonchiffon; */
+  margin-bottom: 30px;
+}
+
+.home-page-link-button:hover {
+  box-shadow: 0 0 18px 2px rgba(128, 128, 128, 0.5) inset, 0 0 18px 2px rgba(128, 128, 128, 0.5);
+}
+
+.home-page-link-button:active {
+  box-shadow: 0 0 18px 2px rgba(128, 128, 128, 0.5) inset;
+}
+
+.home-page-link-button a {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  font-size: 32px;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bold;
+  /* padding-bottom: 20px; */
+  /* color: white; */
+  color: #359;
+  /* text-shadow: 2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black; */
+  margin-bottom: -60px;
+}
+
+.home-page-link-ToMyPets {
+  background-image: url('pets-company.jpg');
+
+}
+
+.home-page-link-ToMyAppointments {
+  background-image: url('vet-1.jpg');
+}

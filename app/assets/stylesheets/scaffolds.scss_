@@ -5,7 +5,7 @@ body {
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 18px; }
 
 pre {
@@ -64,29 +64,3 @@ div.actions {
 label {
   display: block;
 }
-
-.top-bar {
-  height: 40px;
-  background-color: #379;
-  font-size: large;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.top-bar a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #eee;
-  // margin: 0 4px;
-
-  padding: 0 10px;
-  text-decoration: none;
-  height: 100%;
-}
-
-.top-bar a:hover {
-  background-color: #000;
-} 

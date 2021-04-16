@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :pets do
     resources :treatments
   end
+  resources :user do
+    resources :treatments
+  end
   resources :appointments
   resources :users do
     resources :appointments

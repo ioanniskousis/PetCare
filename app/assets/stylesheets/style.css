@@ -1,0 +1,84 @@
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+body, p, ol, ul, td {
+  /* font-family: verdana, arial, helvetica, sans-serif; */
+  font-family: 'Varela Round', sans-serif;
+  font-size: 13px;
+  /* line-height: 18px; */
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  height: 40px;
+  background-color: #379;
+  font-size: large;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* padding-left: 10px; */
+}
+
+.top-bar img {
+  margin: 0 10px;
+}
+
+.top-bar div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.top-bar input[type="submit"] {
+  display: flex;
+  
+  border: none;
+  background-color: transparent;
+  height: 100%;
+  font-size: inherit;
+  color: white;
+  margin: 0 2px;
+  cursor: pointer;
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+
+.top-bar input[type="submit"]:hover {
+  background-color: #000;
+}
+
+.top-bar div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eee;
+  padding: 0 10px;
+  text-decoration: none;
+  height: 100%;
+}
+
+.top-bar div a:hover {
+  background-color: #000;
+}
+
+.top-bar-left {
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.top-bar-right {
+  width: 120px;
+  justify-content: flex-end;
+  /* background-color: #555; */
+}
