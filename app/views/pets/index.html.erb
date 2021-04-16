@@ -1,8 +1,9 @@
-<h1>Pets</h1>
-<% if @owner %>
-  <h1><%= @owner.firstname + ' ' + @owner.surname %></h1>
-<% end %>
-
+<div class="main-container">
+  <div class="page-header">
+    <% if @owner %>
+      <h2 ><%= @owner.fullname + ': Pets' %></h2>
+    <% end %>
+  </div>
 <table>
   <thead>
     <tr>
@@ -25,3 +26,5 @@
 <br>
 
 <%= link_to 'New Pet', new_pet_path(owner: @owner) %>
+
+</div>

@@ -113,12 +113,12 @@ input[type="submit"] {
   background-color: #000;
 }
 
-.top-bar-left {
+.top-bar div:nth-child(1) {
   /* flex: 1; */
   justify-content: flex-start;
 }
 
-.top-bar-right {
+.top-bar div:nth-child(2) {
   /* flex: 1; */
   justify-content: flex-end;
   /* background-color: #555; */

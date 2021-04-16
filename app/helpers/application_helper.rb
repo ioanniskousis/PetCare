@@ -1,7 +1,15 @@
 module ApplicationHelper
-  def linkToHome
+  def currentUserTopLabel
     if current_user
-      link_to("Home", root_path)
+      tag.div(class: "topLabel") do
+        current_user.fullname
+      end
+    end
+  end
+
+  def linkToDashboard
+    if current_user
+      link_to("Dashboard", root_path)
     end
   end
 
@@ -36,19 +44,19 @@ module ApplicationHelper
   end
 
   def linkToMyPets
-    tag.div(class: 'home-page-link-button home-page-link-ToMyPets') do
+    tag.div(class: 'dashboard-button toMyPets') do
       link_to("My Pets", pets_path(owner: current_user))
     end
   end
 
   def linkToMyTreatment
-    tag.div(class: 'home-page-link-button home-page-link-ToMyTreatments') do
+    tag.div(class: 'dashboard-button toMyTreatments') do
       link_to("Treatment", user_treatments_path(user_id: current_user.id))
     end
   end
 
   def linkToMyAppointments
-    tag.div(class: 'home-page-link-button home-page-link-ToMyAppointments') do
+    tag.div(class: 'dashboard-button toMyAppointments') do
       link_to("Appointments", user_appointments_path(user_id: current_user.id))
     end
   end

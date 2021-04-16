@@ -21,28 +21,27 @@
   height: 100%;
 }
 
-.home-central {
+.main-container {
   margin: auto;
   height: calc(100% - 40px);
   width: 100%;
   max-width: 800px;
-  background-color: rgba(30, 50, 90, 0.1);
+  /* background-color: rgba(90, 90, 90, 0.1); */
 }
 
-.home-central h1 {
+.main-container h1 {
   margin: 0;
 }
 
-.home-inner {
+.main-inner {
   margin: auto;
   height: 100%;
   width: 100%;
   max-width: 400px;
-  padding: 0 20px;
-  background-color: rgba(30, 50, 90, 0.2);
+  /* background-color: rgba(90, 90, 90, 0.2); */
 }
 
-.home-page-link-container {
+.dashboard-section {
   /* background-color: palegoldenrod; */
   /* border: 1px solid black; */
   display: flex;
@@ -55,7 +54,7 @@
   /* overflow: hidden; */
 }
 
-.home-page-link-button {
+.dashboard-button {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,15 +72,15 @@
   margin-bottom: 30px;
 }
 
-.home-page-link-button:hover {
+.dashboard-button:hover {
   box-shadow: 0 0 18px 2px rgba(128, 128, 128, 0.5) inset, 0 0 18px 2px rgba(128, 128, 128, 0.5);
 }
 
-.home-page-link-button:active {
+.dashboard-button:active {
   box-shadow: 0 0 18px 2px rgba(128, 128, 128, 0.5) inset;
 }
 
-.home-page-link-button a {
+.dashboard-button a {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -98,16 +97,16 @@
   margin-bottom: -40px;
 }
 
-.home-page-link-ToMyPets {
+.toMyPets {
   background-image: url('pets-company.jpg');
 
 }
 
-.home-page-link-ToMyTreatments {
+.toMyTreatments {
   background-image: url('vet-1.jpg');
 }
 
-.home-page-link-ToMyAppointments {
+.toMyAppointments {
   background-image: url('pet-appointments.jpg');
 }
 
@@ -116,16 +115,62 @@
   padding: 10px;
   color: #359;
   text-align: center;
-  /* background-color: lemonchiffon; */
 }
 
+.page-header {
+  display: flex;
+  background-color: #fff;
+}
 
-.home-central input[type="text"],
+.page-header h2 {
+  display: inline-block;
+  padding: 10px;
+  color: #359;
+  text-align: left;
+}
+
+.pageLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: right;
+}
+
+.page-body {
+  padding: 0 20px;
+}
+
+.main-container input[type="text"],
 input[type="email"],
 input[type="password"] {
   margin-bottom: 20px;
 }
 
-.home-central input[type="submit"] {
+.main-container input[type="submit"] {
   width: 100%;
+}
+
+.main-container label {
+  margin-left: 10px;
+}
+
+.main-container em {
+  margin-left: 10px;
+  font-size: small;
+  font-style: normal;
+  margin-right: 10px;
+  display: block;
+  text-align: right;
+  float: right;
+}
+
+.label-exeption {
+  display: inline-block;
+}
+
+.topLabel {
+  color: #ccc;
+  /* background-color: black; */
+  padding-top: 4px;
+  margin-right: 20px;
 }
