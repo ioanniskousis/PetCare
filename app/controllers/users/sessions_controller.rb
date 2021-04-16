@@ -5,12 +5,13 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   # def new
-  #   super
+  #   redirect_to dashboard_path
   # end
 
   # POST /resource/sign_in
   # def create
   #   super
+  #   redirect_to dashboard_path
   # end
 
   # DELETE /resource/sign_out

@@ -7,9 +7,13 @@ module ApplicationHelper
     end
   end
 
+  def linkToRoot
+    link_to("Home", root_path)
+  end
+
   def linkToDashboard
     if current_user
-      link_to("Dashboard", root_path)
+      link_to("Dashboard", dashboard_path)
     end
   end
 
@@ -21,19 +25,19 @@ module ApplicationHelper
 
   def linkToLogIn
     if !current_user && (controller_name != 'sessions')
-      link_to("Log in", new_session_path(resource_name))
+      link_to("Log in", new_session_path(:user))
     end
   end
 
   def linkToSignUp
     if !current_user && (controller_name != 'registrations') 
-      link_to("Sign up", new_registration_path(resource_name))
+      link_to("Sign up", new_registration_path(:user))
     end
   end
 
   def linkToForgot
-    if !current_user && (controller_name != 'passwords') && (controller_name != 'registrations') 
-      link_to("Forgot Password", new_password_path(resource_name))
+    if controller_name == 'sessions' 
+      link_to("Forgot Password", new_password_path(:user))
     end
   end
 

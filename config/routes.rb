@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resources :treatment_photos
   resources :treatments
   resources :pet_images
-  root "dashboard#index"
+  root "home#index"
+  get '/home', to: 'home#index'
   get '/dashboard', to: 'dashboard#index'
   get '/users', to: 'users#index'
 
