@@ -1,3 +1,58 @@
 // Place all the styles related to the Pets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.petPanel {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  // box-shadow: 0 0 4px 2px #e5f2ff;
+  border-radius: 4px;
+  background-color: #f9ffe6;
+}
+
+.petDetails {
+  flex: 1;
+  min-width: 400px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.petFields {
+  // border: 1px solid red;
+}
+
+.petLinks {
+  padding: 10px;
+  // border: 1px solid blue;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f9ffe6;
+}
+
+.petLinks a {
+  font-size: medium;
+  color: #359;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.petPanelImage {
+  width: 200px;
+  min-width: 200px;
+  height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 10px;
+  overflow: hidden;
+}

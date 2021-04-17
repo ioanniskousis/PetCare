@@ -3,8 +3,12 @@ class PetImagesController < ApplicationController
 
   # GET /pet_images or /pet_images.json
   def index
-    @pet = Pet.find(params[:pet_id])
-    @pet_images = @pet.pet_images
+    if params[:pet_id]
+      @pet = Pet.find(params[:pet_id])
+      @pet_images = @pet.pet_images
+    else
+      @pet_images = PetImage.all
+    end
   end
 
   # GET /pet_images/1 or /pet_images/1.json
@@ -50,11 +54,15 @@ class PetImagesController < ApplicationController
 
   # DELETE /pet_images/1 or /pet_images/1.json
   def destroy
-    @pet = Pet.find(params[:pet_id])
+    @pet = Pet.find(params[:pet_id]) if params[:pet_id]
     @pet_image.destroy
-    respond_to do |format|
-      format.html { redirect_to pet_pet_images_path(@pet), notice: "Pet image was successfully destroyed." }
-      format.json { head :no_content }
+    if params[:pet_id]
+      respond_to do |format|
+        format.html { redirect_to pet_pet_images_path(@pet), notice: "Pet image was successfully destroyed." }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to pet_images_path
     end
   end
 

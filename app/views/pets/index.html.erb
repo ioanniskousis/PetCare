@@ -1,30 +1,54 @@
-<div class="main-container">
-  <div class="page-header">
+<main class="main-container">
+  <header class="page-header">
     <% if @owner %>
       <h2 ><%= @owner.fullname + ': Pets' %></h2>
     <% end %>
-  </div>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+    <%= link_to "New Pet", new_pet_path(owner: @owner), class: 'pageLink' %>
+  </header>
+  <div class="page-body">
     <% @pets.each do |pet| %>
-      <tr>
-        <td><%= pet.name %></td>
-        <td><%= link_to 'Show', pet %></td>
-        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <section>
+        <div class="petPanel">
+          <div class="petDetails">
+            <div class="petFields">
+              <div class="detailsRow">
+                <div class="itemDetail"><%= pet.name %></div>
+                <div class="itemDetail"><%= pet.raceCaption %></div>
+              </div>
+              <div class="detailsRow">
+                <div class="itemDetail"><%= pet.genderCaption %></div>
+                <div class="itemDetail"><%= pet.sterilisedCaption %></div>
+              </div>
+              <div class="detailsRow">
+                <div class="itemDetail"><%= pet.color %></div>
+                <div class="itemDetail"><%= pet.dateOfBirth %></div>
+              </div>
+              <div class="detailsRow">
+                <div class="itemDetail"><%= pet.description %></div>
+              </div>
+            </div>
+            <div class="petLinks">
+              <div>
+                <%= link_to 'Treatment', pet_treatments_path(pet) %>
+              </div>
+              <div>
+                <%= link_to 'More..', pet %>
+                <%= link_to 'Edit', edit_pet_path(pet) %>
+                <%#= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            </div>
+          </div>
+          <div class="petPanelImage">
+            <%= petFirstPhoto(pet) %>
+          </div>
+        </div>
+        <!--
+        <div style="height:40px; border: 1px solid #ccc; border-radius: 4px; margin: -9px 10px 0 10px;">
+        </div>
+        -->
+      </section>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
 
-<%= link_to 'New Pet', new_pet_path(owner: @owner) %>
-
-</div>
+</main>

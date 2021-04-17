@@ -11,58 +11,79 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :name %>
+      <%= form.text_field :name, required: true %>
+    </div>
+    <div class="itemDetail">
+      <%= form.label :dateOfBirth, 'Date of birth' %>
+      <%= form.date_field :dateOfBirth %>
+    </div>
+  </div>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :species %>
+      <%= form.text_field :species %>
+    </div>
+
+    <div class="itemDetail">
+      <%= form.label :race %>
+      <%= form.text_field :race %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :species %>
-    <%= form.text_field :species %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :breed %>
+      <%= form.text_field :breed %>
+    </div>
+
+    <div class="itemDetail">
+      <%= form.label :color %>
+      <%= form.text_field :color %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :race %>
-    <%= form.text_field :race %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :gender %> 
+      <div class="radio-detail">
+        <div class="radio-detail-item">
+          <%= form.label :gender_2, 'Female', class: 'radio-label' %>
+          <%= form.radio_button :gender, '2' %>
+        </div>
+        <div class="radio-detail-item">
+          <%= form.label :gender_1, 'Male', class: 'radio-label' %>
+          <%= form.radio_button :gender, '1' %>
+        </div>
+        <div class="radio-detail-item">
+          <%= form.label :gender_0, 'unset', class: 'radio-label' %>
+          <%= form.radio_button :gender, '0' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="itemDetail">
+      <%= form.label :sterilised %>
+      <%= form.check_box :sterilised, class: "custom-checkbox" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :breed %>
-    <%= form.text_field :breed %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :description, 'Notes' %>
+      <%= form.text_area :description %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color %>
-  </div>
+  <%= form.hidden_field :user_id %>
 
-  <div class="field">
-    <%= form.label :dateOfBirth %>
-    <%= form.date_field :dateOfBirth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sterilised %>
-    <%= form.check_box :sterilised %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+    </div>
+    <div class="itemDetail">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

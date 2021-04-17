@@ -1,5 +1,16 @@
-<h1>New Pet</h1>
+<main class="main-container">
+  <header class="page-header">
+    <% if @owner %>
+      <h2 ><%= @owner.fullname + ': New Pet' %></h2>
+    <% else %>
+      <h2 >New Pet</h2>
+    <% end %>
 
-<%= render 'form', pet: @pet %>
+    <%= link_to "Back", pets_path(owner: @owner), class: 'pageLink' %>
+  </header>
+  <div class="page-body">
 
-<%= link_to 'Back', pets_path %>
+    <%= render 'form', pet: @pet %>
+
+  </div>
+</main>
