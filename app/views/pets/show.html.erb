@@ -1,110 +1,136 @@
-<h1>Pet Details</h1>
+<main class="main-container">
+  <header class="page-header">
+    <h2 >Pet Details</h2>
+    <%= link_to "Back", pets_path(owner: @owner), class: 'pageLink' %>
+  </header>
+  <div class="page-body">
+    <section>
+      <div class="petDetails">
+        <div class="petFields">
+          <div class="detailsRow">
+            <div class="itemDetail">
+              <strong>Name:</strong>
+              <%= @pet.name %>
+            </div>
+            <div class="itemDetail">
+              <strong>Owner:</strong>
+              <%= @pet.owner.fullname %>
+            </div>
+          </div>
+          <div class="detailsRow">
+            <div class="itemDetail">
+              <strong>Species:</strong>
+              <%= @pet.species %>
+            </div>
+            <div class="itemDetail">
+              <strong>Race:</strong>
+              <%= @pet.race %>
+            </div>
+          </div>
+          <div class="detailsRow">
+            <div class="itemDetail">
+              <strong>Gender:</strong>
+              <%= @pet.genderCaption %>
+            </div>
+            <div class="itemDetail">
+              <strong>Sterilised:</strong>
+              <%= @pet.sterilisedBool %>
+            </div>
+          </div>
+          <div class="detailsRow">
+            <div class="itemDetail">
+              <strong>Color:</strong>
+              <%= @pet.color %>
+            </div>
+            <div class="itemDetail">
+              <strong>Breed:</strong>
+              <%= @pet.breed %>
+            </div>
+          </div>
+          <div class="detailsRow">
+            <div class="itemDetail">
+              <strong>Birth:</strong>
+              <%= @pet.dateOfBirth %>
+            </div>
+          </div>
+          <div class="detailsRow">
+            <div class="itemDetail">
+              <strong>Notes:</strong>
+              <%= @pet.description %>
+            </div>
+          </div>
+        </div>
+        <div class="petLinks">
+          <div>
+            <%= link_to 'Treatment', pet_treatments_path(@pet) %>
+          </div>
+          <div>
+            <%= link_to 'Edit', edit_pet_path(@pet) %>
+            <%= link_to 'Delete', @pet, method: :delete, data: { confirm: 'Are you sure you want to Delete this pet ?' } %>
+          </div>
+        </div>
+        
+        <!--
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <strong>
+              <%= link_to 'Photos:' + ' ' + @pet.pet_images.count.to_s, pet_pet_images_path(pet_id: @pet) %>
+            </strong>
+          </div>
+          <div class="itemDetail">
 
-<p>
-<strong>Name:</strong>
-<%= @pet.name %>
-</p>
-
-<p>
-<strong>species:</strong>
-<%= @pet.species %>
-</p>
-
-<p>
-<strong>race:</strong>
-<%= @pet.race %>
-</p>
-
-<p>
-<strong>breed:</strong>
-<%= @pet.breed %>
-</p>
-
-<p>
-<strong>color:</strong>
-<%= @pet.color %>
-</p>
-
-<p>
-<strong>dateOfBirth:</strong>
-<%= @pet.dateOfBirth %>
-</p>
-
-<p>
-<strong>gender:</strong>
-<%= @pet.gender %>
-</p>
-
-<p>
-<strong>sterilised:</strong>
-<%= @pet.sterilised %>
-</p>
-
-<p>
-<strong>description:</strong>
-<%= @pet.description %>
-</p>
-
-<p>
-<strong>created_at:</strong>
-<%= @pet.created_at %>
-</p>
-
-<p>
-<strong>updated_at:</strong>
-<%= @pet.updated_at %>
-</p>
-
-<p>
-<strong>user_id:</strong>
-<%= @pet.user_id %>
-</p>
-
-<hr/>
-<p>
-  <strong>Treatment:</strong>
-  <%= link_to 'Show Treatment', pet_treatments_path(@pet) %>
-</p>
-<p>
-  <strong>
-  <%= link_to 'Photos:' + ' ' + @pet.pet_images.count.to_s, pet_pet_images_path(pet_id: @pet) %>
-  </strong>
-</p>
+          </div>
+        </div>
+        -->
+  
 
 
-<% @pet.pet_images.each do |image| %>
-  <% if image.photo.persisted? %>
-    <%= link_to pet_image_path(image) do %>
-      <%= image_tag image.photo.variant(resize_to_limit: [150, nil]) %>
-    <% end %>
-    <%= image.description %>
-    <hr/>
-  <% end %>
-<% end %>
+      </div>
+      <div class="petPhotos">
+        <% @pet.pet_images.each do |image| %>
+          <% if image.photo.persisted? %>
+            <div class="petPhotoContainer">
+              <div class="petPhotoDescription">
+                <%= image.description %>
+              </div>
+              <div class="petPhotoPanel">
+                <div class="petPhoto">
+                  <%= link_to edit_pet_image_path(image) do %>
+                    <%= image_tag image.photo %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="addPhotoButtonContainer">
+        <div id="newPhotoFile">
+        </div>
+        <input type="button" id="addPhotoButton" value="Select New Photo">
+      </div>
+      <div id="addPetPhotoPanel">
+        <%= form_for(@pet_image) do |form| %>
+          <%= form.hidden_field :pet_id %>
+          <%= form.file_field :photo, {id: "pet_image_photo"} %>
 
-<p>
-  <%= form_for(@pet_image) do |form| %>
-    <%= form.hidden_field :pet_id %>
+          <div class="itemDetail">
+            <%= form.label :description %>
+            <%= form.text_field :description %>
+          </div>
 
-    <div class="field">
-      <%= form.label :photo, "Add New Photo" %>
-      <%= form.file_field :photo, {id: "select_image"} %>
-    </div>
-    
-    <div class="field">
-      <%= form.label :description %>
-      <%= form.text_field :description %>
-    </div>
+          <div class="detailsRow">
+            <div class="itemDetail">
+              <%= form.submit("Save New Photo", {id: "save_image"}) %>
+            </div>
+            <div class="itemDetail">
+              <input type="button" value="Cancel" id="cancelNewPhoto" />
+            </div>
+          </div>
+        <% end %>
 
-    <div class="actions">
-      <%= form.submit("Save New Photo", {id: "save_image"}) %>
-    </div>
-  <% end %>
-
-</p>
-
-<br/><br/>
-<hr/>
-
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+      </div>
+    </section>
+  </div>
+</main>
+<%= javascript_pack_tag 'pet_show' %>

@@ -20,7 +20,7 @@ div, section, main {
   margin: 0;
 }
 
-h1, h2 {
+h1, h2, h3, h4 {
   margin: 0;
 }
 
@@ -41,30 +41,35 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="date"],
+input[type="button"],
+input[type="submit"],
 textarea {
   font-family: inherit;
   font-size: 15px;
   padding: 10px;
-
   margin: 0;
   box-sizing: border-box;
-  width: 100%;
   border: 1px solid rgba(128, 128, 128, 0.5);
   border-radius: 4px;
-
 }
 
-input[type="submit"] {
-  font-size: 15px;
-  padding: 10px;
-
-  margin: 0;
-  box-sizing: border-box;
-  /* width: 100%; */
-  border: 1px solid rgba(128, 128, 128, 0.5);
-  border-radius: 4px;
+input[type="submit"],
+input[type="button"] {
   background-color: #379;
   color: white;
+  font-size: medium;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: #59c;
+}
+
+input[type="submit"]:active,
+input[type="button"]:active {
+  box-shadow: 0 0 4px 2px #359;
 }
 
 .custom-checkbox {
@@ -167,7 +172,18 @@ input[type="submit"] {
   font-size: medium;
   padding: 10px;
   color: #359;
-  /* margin: 0 10px; */
+  /* background-color: #ccc; */
+  /* border: 1px solid black; */
+}
+
+.itemDetail input[type="text"],
+.itemDetail input[type="email"],
+.itemDetail input[type="password"],
+.itemDetail input[type="date"],
+.itemDetail input[type="button"],
+.itemDetail input[type="submit"],
+.itemDetail textarea {
+  width: 100%;
 }
 
 .radio-detail {
@@ -183,13 +199,15 @@ input[type="submit"] {
 
 .radio-detail-item {
   display: inline-block;
-  /* flex: 1; */
-  /* margin: 0 10px; */
-  /* background-color: #ccc; */
 }
 
 .radio-detail-item label, 
 .radio-detail-item input {
   cursor: pointer;
-  /* padding: 4px 10px; */
 }
+
+.itemDetail strong {
+  display: inline-block;
+  width: 80px;
+}
+

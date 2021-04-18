@@ -12,6 +12,10 @@ class Pet < ApplicationRecord
   def genderCaption
     gender == 1 ? 'Male' : (gender == 2 ? "Female" : '')
   end
+  
+  def sterilisedBool
+    sterilised ? 'YES' : 'NO'
+  end
 
   def sterilisedCaption
     sterilised ? 'Sterilised' : 'Not Sterilised'

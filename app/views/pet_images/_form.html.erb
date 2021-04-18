@@ -1,17 +1,30 @@
 <%= form_with(model: pet_image) do |form| %>
-  <% if pet_image.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pet_image.errors.count, "error") %> prohibited this pet_image from being saved:</h2>
-
-      <ul>
-        <% pet_image.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <% if pet_image.photo.persisted? %>
+    <div class="petPhotoPanel">
+      <div class="petPhoto">
+        <%= image_tag pet_image.photo %>
+      </div>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="addPhotoButtonContainer">
+    <input type="button" id="selectPhotoButton" value="Select Photo">
   </div>
+  <%= form.file_field :photo, {id: "pet_image_photo"} %>
+
+  <p>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </p>
+  <div class="detailsRow">
+    <div id="addPetPhotoPanel">
+      <div class="itemDetail" id="newPhotoFile">
+      </div>
+    </div>
+
+  </div>
+  <p>
+    <%= form.submit %>
+  </p>
 <% end %>
+<%= javascript_pack_tag 'pet_edit' %>

@@ -7,20 +7,20 @@
   justify-content: center;
   flex-wrap: wrap;
 
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px 0;
+  // border: 1px solid #ddd;
   // box-shadow: 0 0 4px 2px #e5f2ff;
-  border-radius: 4px;
-  background-color: #f9ffe6;
+  // border-radius: 4px;
+  // background-color: #f9ffe6;
 }
 
 .petDetails {
   flex: 1;
   min-width: 400px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin: 10px 0;
+  // border: 1px solid #ccc;
+  // border-radius: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,7 +52,106 @@
   min-width: 200px;
   height: 200px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  // border-radius: 4px;
   margin: 10px;
   overflow: hidden;
+}
+
+.petPhotos {
+  margin: 0 0 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.petPhotoContainer {
+  flex: 1;
+  width: 30%;
+  min-width: 200px;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+  background-color: #eee;
+  padding: 4px;
+}
+
+.petPhotoPanel {
+  width: 100%;
+  // margin-bottom: 20px;
+}
+
+.petPhoto {
+  width: 100%;
+  // border: 1px solid #ccc;
+  // border-radius: 20px;
+  overflow: hidden;
+  // margin-bottom: 10px;
+  background-color: #eee;
+}
+
+.petPhoto img {
+  width: 100%;
+}
+
+.petPhotoDescription {
+  font-size: large;
+  color: #357;
+  padding: 10px;
+}
+
+#addPetPhotoPanel {
+  margin: auto;
+  width: 80%;
+  border: 1px solid #777;
+  border-radius: 4px;
+  visibility: hidden;
+}
+
+.addPhotoButtonContainer {
+  width: 80%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// #addPhotoButton {
+//   padding: 10px 20px;
+//   background-color: #379;
+//   color: white;
+//   border: 1px solid #777;
+//   border-radius: 4px;
+//   float: right;
+//   cursor: pointer;
+//   font-size: medium;
+// }
+
+// #addPhotoButton:hover {
+//   background-color: #59c;
+// }
+
+// #addPhotoButton:active {
+//   // background-color: #79a;
+//   border: 1px solid #333;
+//   box-shadow: 0 0 4px 2px #359;
+// }
+
+#pet_image_photo {
+  visibility: hidden;
+  display: none;
+}
+
+#newPhotoFile {
+  display: flex;
+  justify-items: right;
+  align-items: center;
+  color: #357;
+  font-size: medium;
+  padding: 10px;
+  color: #359;
+  flex: 1;
+  text-align: right;
 }

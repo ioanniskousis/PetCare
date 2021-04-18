@@ -30,7 +30,9 @@ class PetImagesController < ApplicationController
 
     respond_to do |format|
       if @pet_image.save
-        format.html { redirect_to @pet_image, notice: "Pet image was successfully created." }
+        pet = @pet_image.pet
+
+        format.html { redirect_to pet_path(pet) }
         format.json { render :show, status: :created, location: @pet_image }
       else
         format.html { render :new, status: :unprocessable_entity }

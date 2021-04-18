@@ -17,6 +17,17 @@
  @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=New+Tegomin&family=Varela+Round&display=swap');
 
+
+* {
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* ::-webkit-scrollbar {
+  display: none;
+}
+
 .home-image {
   height: 100%;
 }
@@ -137,16 +148,14 @@
 }
 
 .page-body {
-  padding: 20px;
+  padding: 20px 0;
   height: calc(100% - 50px);
   overflow-y: auto;
-  /* background-color: blanchedalmond; */
 }
 
-.devise-container input[type="text"],
-input[type="email"],
-input[type="password"] {
-  margin-bottom: 20px;
+.devise-container {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .main-container input[type="submit"] {
@@ -189,4 +198,8 @@ input[type="password"] {
     display: none;
     visibility: hidden;
   }
+}
+
+#save_image {
+  /* visibility: hidden; */
 }
