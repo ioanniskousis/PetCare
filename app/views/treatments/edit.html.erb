@@ -1,6 +1,16 @@
-<h1>Editing Treatment</h1>
+<main class="main-container">
+  <header class="page-header">
+    <h2 >Editing Treatment Record</h2>
+    <%= link_to "Back", pet_treatments_path(@treatment.pet), class: 'pageLink' %>
+  </header>
+  <div class="page-body">
+    <%= render 'form', treatment: @treatment %>
+  </div>
 
-<%= render 'form', treatment: @treatment %>
 
-<%= link_to 'Show', @treatment %> |
-<%= link_to 'Back to ' + @treatment.pet.name + ' treatment', pet_treatments_path(@treatment.pet) %>
+
+<%#= link_to 'Show', @treatment %> |
+<%#= link_to 'Back to ' + @treatment.pet.name + ' treatment', pet_treatments_path(@treatment.pet) %>
+
+
+</main>

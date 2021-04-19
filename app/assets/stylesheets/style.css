@@ -37,13 +37,20 @@ label {
   display: inline-block;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="date"],
 input[type="button"],
 input[type="submit"],
-textarea {
+textarea,
+select {
   font-family: inherit;
   font-size: 15px;
   padding: 10px;
@@ -214,3 +221,30 @@ input[type="button"]:active {
   width: 80px;
 }
 
+.flex-end {
+  justify-content: flex-end;
+}
+
+a.redText {
+  color: #e11;
+}
+
+.blueText {
+  color: #33e;
+}
+
+.brownText {
+  color: brown;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.w100 select {
+  width: 100%;
+}

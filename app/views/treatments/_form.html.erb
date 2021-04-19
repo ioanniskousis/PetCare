@@ -11,40 +11,61 @@
     </div>
   <% end %>
 
+  <% unless treatment.pet_id.positive? %>
+    <div class="detailsRow">
+      <div class="itemDetail w100">
+        <%= form.label :pet %>
+        <%= form.select :pet_id, options_from_collection_for_select(treatment.user.pets, "id", "name"), include_blank: true %>
+      </div>
+    </div>
+  <% else %>
+    <%= form.hidden_field :pet_id %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :item %>
-    <%= form.text_field :item %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :date, "Date & Time" %>
+      <%= form.datetime_select :date %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cost %>
-    <%= form.text_field :cost %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet %>
-    <%= form.text_field :pet_id %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :item %>
+      <%= form.text_field :item %>
+    </div>
+    <div class="itemDetail">
+      <%= form.label :cost %>
+      <%= form.text_field :cost %>
+    </div>
   </div>
 
 
-  <div class="field">
-    <%= form.label :user %>
-    <%= form.text_field :user_id %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :location %>
+      <%= form.text_field :location %>
+    </div>
   </div>
+
+  <%= form.hidden_field :user_id %>
+
+  <div class="detailsRow">
+    <div class="itemDetail">
+    </div>
+    <div class="itemDetail">
+    </div>
+    <div class="itemDetail">
+      <%= form.submit %>
+    </div>
+  </div>
+
 <% end %>

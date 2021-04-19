@@ -1,6 +1,21 @@
-<h1>New Treatment</h1>
-<h2>for <%= @pet.name %></h2>
+<main class="main-container">
+  <header class="page-header">
+    <% if @pet %>
+      <h2>New Treatment Record for <%= @pet.name %></h2>
+      <%= link_to "Back", pet_treatments_path(@treatment.pet), class: 'pageLink' %>
+    <% else %>
+      <h2>New Treatment Record</h2>
+      <%= link_to "Back", pet_treatments_path(@treatment.user), class: 'pageLink' %>
+    <% end %>
+  </header>
+  <div class="page-body">
+    <%= render 'form', treatment: @treatment %>
+  </div>
 
-<%= render 'form', treatment: @treatment %>
 
-<%= link_to 'Back', pet_treatments_path(pet_id: @pet) %>
+
+<%#= link_to 'Show', @treatment %> |
+<%#= link_to 'Back to ' + @treatment.pet.name + ' treatment', pet_treatments_path(@treatment.pet) %>
+
+
+</main>

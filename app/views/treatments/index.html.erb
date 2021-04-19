@@ -1,54 +1,70 @@
 <main class="main-container">
   <header class="page-header">
     <% if @user %>
-      <h2 ><%= @user.fullname %>: All Pets Treatments</h2>
-      <%= link_to "Back to Dashboard", dashboard_path, class: 'pageLink' %>
+      <h2 ><%= @user.fullname %>: Treatment</h2>
+      <div class="page-header-links">
+        <%= link_to "Back", dashboard_path, class: 'pageLink' %>
+        <%= link_to 'New', new_treatment_path(user_id: @user), class: 'pageLink' %>
+      </div>
     <% else %>
       <% if @pet %>
         <h2 ><%= @pet.name + ': Treatment' %></h2>
+        <div class="page-header-links">
+          <%= link_to "Back", pet_path(@pet), class: 'pageLink' %>
+          <%= link_to 'New', new_treatment_path(pet_id: @pet), class: 'pageLink' %>
+        </div>
       <% else %>
         <h2 ><%= 'All Pets Treatment' %></h2>
-        <%= link_to "Back to Dashboard", dashboard_path, class: 'pageLink' %>
+        <div class="page-header-links">
+          <%= link_to "Back", dashboard_path, class: 'pageLink' %>
+          <%= link_to 'New', new_treatment_path, class: 'pageLink' %>
+        </div>
       <% end %>
     <% end %>
+    
   </header>
   <div class="page-body">
-
-    <table>
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Description</th>
-          <th>Cost</th>
-          <th>Location</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @treatments.each do |treatment| %>
-          <tr>
-            <td><%= treatment.item %></td>
-            <td><%= treatment.description %></td>
-            <td><%= treatment.cost %></td>
-            <td><%= treatment.location %></td>
-            <td><%= link_to 'Show', treatment %></td>
-            <td><%= link_to 'Edit', edit_treatment_path(treatment) %></td>
-            <td><%= link_to 'Destroy', treatment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <br>
-
-    <%= link_to 'New Treatment', new_treatment_path(pet_id: @pet) %>
-    <% if @pet %>
-      <%= link_to 'Back to ' + @pet.name, pet_path(@pet) %>
-    <% else %>
-      <%= link_to 'Back Dashboard ', root_path %>
+    <% @treatments.each do |treatment| %>
+      <div class="petPanel">
+        <div class="petDetails">
+          <div class="petFields">
+            <div class="detailsRow">
+              <div class="itemDetail blueText"><%= treatment.dateCaption %></div>
+              <% if @user %>
+                <div class="itemDetail brownText"><%= treatment.pet.name %></div>
+              <% end %>
+              <div class="itemDetail align-right"><%= treatment.location %></div>
+            </div>
+            <div class="detailsRow">
+              <div class="itemDetail"><%= treatment.item %></div>
+              <div class="itemDetail align-right"><%= treatment.cost %></div>
+            </div>
+            <div class="detailsRow">
+              <div class="itemDetail"><%= treatment.description %></div>
+            </div>
+          </div>
+          <div class="petLinks flex-end">
+            <div>
+              <%= link_to treatment.treatment_photos.length.to_s + ' Photos', treatment_path(treatment) %>
+            </div>
+            <div>
+              <%= link_to 'Edit', edit_treatment_path(treatment) %>
+            </div>
+            <div>
+              <%#= link_to 'Remove', treatment, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr/>
     <% end %>
 
+    <% if @treatments.length.zero? %>
+      <div class="page-body-msg">
+        <h2>No treatment cases are recorded</h2>
+        <h3>Please click the New button to add</h3>
+      </div>
+    <% end %>
   </div>
 
 

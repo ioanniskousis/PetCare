@@ -5,7 +5,7 @@ class TreatmentsController < ApplicationController
   def index
     if params[:pet_id]
       @pet = Pet.find(params[:pet_id])
-      @user = @pet.owner
+      # @user = @pet.owner
       @treatments = @pet.treatments
     else
       @user = User.find(params[:user_id])
@@ -28,6 +28,7 @@ class TreatmentsController < ApplicationController
     else
       @user = User.find(params[:user_id])
       @treatment = @user.treatments.new
+      @treatment.pet_id = 0
     end
   end
 
@@ -38,6 +39,7 @@ class TreatmentsController < ApplicationController
   # POST /treatments or /treatments.json
   def create
     @treatment = Treatment.new(treatment_params)
+    @treatment.pet_id = 0 if @treatment.pet_id.nil?
 
     respond_to do |format|
       if @treatment.save
@@ -83,6 +85,6 @@ class TreatmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def treatment_params
-      params.require(:treatment).permit(:pet_id, :user_id, :item, :description, :cost, :location)
+      params.require(:treatment).permit(:pet_id, :user_id, :date, :item, :description, :cost, :location)
     end
 end

@@ -131,6 +131,13 @@
   text-align: left;
 }
 
+.page-header-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
 .pageLink {
   display: flex;
   justify-content: center;
@@ -141,6 +148,7 @@
   font-weight: bold;
   color: #357;
   padding: 0 20px;
+  height: 100%;
 }
 
 .pageLink:hover {
@@ -234,10 +242,12 @@
   /* visibility: hidden; */
 }
 
-a.redText {
-  color: #e11;
+.page-body-msg {
+  margin: 30px auto;
+  width: 50%;
+  min-width: 300px;
 }
 
-.flex-start {
-  justify-content: flex-start;
+.page-body-msg * {
+  text-align: center;
 }
