@@ -17,8 +17,6 @@ function createEvents() {
   pet_image_photo.onchange = function() {
     const addPetPhotoPanel = document.getElementById("addPetPhotoPanel");
     addPetPhotoPanel.style.visibility = "visible";
-    addPetPhotoPanel.scrollIntoView();
-
     
     newPhotoFile.innerHTML = pet_image_photo.value;
 

@@ -1,30 +1,37 @@
 <%= form_with(model: pet_image) do |form| %>
-  <% if pet_image.photo.persisted? %>
-    <div class="petPhotoPanel">
-      <div class="petPhoto">
-        <%= image_tag pet_image.photo %>
-      </div>
-    </div>
-  <% end %>
 
-  <div class="addPhotoButtonContainer">
-    <input type="button" id="selectPhotoButton" value="Select Photo">
+  <div class="detailsRow">
+    <div id="newPhotoFile">
+    </div>
+    <div class="itemDetail">
+    </div>
+    <div class="itemDetail" id="selectPhotoButtonContainer">
+      <input type="button" id="selectPhotoButton" value="Select Photo">
+    </div>
+    <div class="itemDetail" id="cancelUpdatePetImagePanel">
+      <input type="button" value="Cancel" id="cancelUpdatePetImageButton" />
+    </div>
   </div>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+  </div>
+
   <%= form.file_field :photo, {id: "pet_image_photo"} %>
 
-  <p>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </p>
   <div class="detailsRow">
-    <div id="addPetPhotoPanel">
-      <div class="itemDetail" id="newPhotoFile">
-      </div>
+    <div class="itemDetail linkBox flex-start">
+      <%= link_to 'Delete this Pet Image', pet_image_path(@pet_image, pet_id: @pet.id), method: :delete, data: { confirm: 'Are you sure you want to Delete this Photo ?' }, class: "redText" %>
     </div>
-
+    <div class="itemDetail">
+    </div>
+    <div class="itemDetail">
+      <%= form.submit "Update" %>
+    </div>
   </div>
-  <p>
-    <%= form.submit %>
-  </p>
+
+
 <% end %>
-<%= javascript_pack_tag 'pet_edit' %>
+

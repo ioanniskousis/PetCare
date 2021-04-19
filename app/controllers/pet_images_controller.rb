@@ -45,7 +45,7 @@ class PetImagesController < ApplicationController
   def update
     respond_to do |format|
       if @pet_image.update(pet_image_params)
-        format.html { redirect_to @pet_image, notice: "Pet image was successfully updated." }
+        format.html { redirect_to edit_pet_image_path(@pet_image) }
         format.json { render :show, status: :ok, location: @pet_image }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class PetImagesController < ApplicationController
     @pet_image.destroy
     if params[:pet_id]
       respond_to do |format|
-        format.html { redirect_to pet_pet_images_path(@pet), notice: "Pet image was successfully destroyed." }
+        format.html { redirect_to pet_path(@pet) }
         format.json { head :no_content }
       end
     else
@@ -72,6 +72,7 @@ class PetImagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pet_image
       @pet_image = PetImage.find(params[:id])
+      @pet = @pet_image.pet
     end
 
     # Only allow a list of trusted parameters through.

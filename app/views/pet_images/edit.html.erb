@@ -1,10 +1,19 @@
 <main class="main-container">
+  <header class="page-header">
+    <h2 >Editing Image of <%= @pet.name %></h2>
+    <%= link_to "Back to details", pet_path(@pet), class: 'pageLink' %>
+  </header>
+  <div class="page-body">
+    <div class="petPhotoPanel">
+      <div class="petPhotoEdit">
+        <% if @pet_image.photo.persisted? %>
+          <%= image_tag @pet_image.photo %>
+        <% end %>
+      </div>
+    </div>
 
-<h1>Editing Pet Image</h1>
+    <%= render 'form', pet_image: @pet_image %>
 
-<%= render 'form', pet_image: @pet_image %>
-
-<%= link_to 'Show', @pet_image %> |
-<%= link_to 'Back', pet_images_path %>
-
+  </div>
 </main>
+<%= javascript_pack_tag 'pet_edit' %>

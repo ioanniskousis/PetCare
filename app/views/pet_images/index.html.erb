@@ -12,9 +12,9 @@
   <tbody>
     <% @pet_images.each do |pet_image| %>
       <tr>
-        <td>
+        <td style="background-color: #ccc;">
           <% if pet_image.photo.persisted? %>
-            <%= image_tag pet_image.photo.variant(resize_to_limit: [150, nil]) %>
+            <%= image_tag pet_image.photo.variant(resize_to_limit: [150, 150]) %>
           <% end %>
         </td>
         <td><%= link_to 'Show', pet_image %></td>

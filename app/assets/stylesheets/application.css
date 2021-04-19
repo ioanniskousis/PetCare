@@ -151,6 +151,7 @@
   padding: 20px 0;
   height: calc(100% - 50px);
   overflow-y: auto;
+  background-color: rgba(230, 242, 255, 0.5);
 }
 
 .devise-container {
@@ -189,6 +190,31 @@
   color: #eee;
 }
 
+.linkBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.linkBox a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.linkBox a:hover {
+  background-color: #ddd;
+}
+
+.linkBox a:active {
+  background-color: #bbb;
+}
+
 @media only screen and (max-width: 768px) {
   .petDetails {
     min-width: 300px;
@@ -198,8 +224,20 @@
     display: none;
     visibility: hidden;
   }
+
+  .petPhotoEdit {
+    width: 90%;
+  }
 }
 
 #save_image {
   /* visibility: hidden; */
+}
+
+a.redText {
+  color: #e11;
+}
+
+.flex-start {
+  justify-content: flex-start;
 }

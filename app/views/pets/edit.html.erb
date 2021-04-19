@@ -1,6 +1,12 @@
-<h1>Editing Pet</h1>
+<main class="main-container">
+  <header class="page-header">
+    <h2 >Editing Pet</h2>
 
-<%= render 'form', pet: @pet %>
+    <%= link_to "Back to pets", pets_path(owner: @owner), class: 'pageLink' %>
+  </header>
+  <div class="page-body">
 
-<%= link_to 'Show', @pet %> |
-<%= link_to 'Back', pets_path %>
+    <%= render 'form', pet: @pet %>
+
+  </div>
+</main>

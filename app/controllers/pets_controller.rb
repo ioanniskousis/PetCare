@@ -14,12 +14,12 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @owner = User.find(params[:owner])
-    # @notice = @owner.firstname
     @pet = @owner.pets.new
   end
 
   # GET /pets/1/edit
   def edit
+    @owner = @pet.owner
   end
 
   # POST /pets or /pets.json
@@ -52,9 +52,10 @@ class PetsController < ApplicationController
 
   # DELETE /pets/1 or /pets/1.json
   def destroy
+    @owner = @pet.owner
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: "Pet was successfully destroyed." }
+      format.html { redirect_to pets_path(owner: @owner) }
       format.json { head :no_content }
     end
   end

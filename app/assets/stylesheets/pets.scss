@@ -26,6 +26,7 @@
   justify-content: space-between;
   background-color: #fff;
   overflow: hidden;
+  margin: 0 10px;
 }
 
 .petFields {
@@ -70,29 +71,41 @@
   width: 30%;
   min-width: 200px;
   max-width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
   margin: 10px;
   background-color: #eee;
   padding: 4px;
 }
 
+.petPhotoContainer a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  text-decoration: none;
+}
+
 .petPhotoPanel {
   width: 100%;
   // margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .petPhoto {
   width: 100%;
-  // border: 1px solid #ccc;
-  // border-radius: 20px;
   overflow: hidden;
-  // margin-bottom: 10px;
   background-color: #eee;
 }
 
-.petPhoto img {
+.petPhotoEdit {
+  width: 80%;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.petPhoto img,
+.petPhotoEdit img {
   width: 100%;
 }
 
@@ -118,27 +131,6 @@
   align-items: center;
 }
 
-// #addPhotoButton {
-//   padding: 10px 20px;
-//   background-color: #379;
-//   color: white;
-//   border: 1px solid #777;
-//   border-radius: 4px;
-//   float: right;
-//   cursor: pointer;
-//   font-size: medium;
-// }
-
-// #addPhotoButton:hover {
-//   background-color: #59c;
-// }
-
-// #addPhotoButton:active {
-//   // background-color: #79a;
-//   border: 1px solid #333;
-//   box-shadow: 0 0 4px 2px #359;
-// }
-
 #pet_image_photo {
   visibility: hidden;
   display: none;
@@ -154,4 +146,9 @@
   color: #359;
   flex: 1;
   text-align: right;
+}
+
+#cancelUpdatePetImagePanel {
+  visibility: hidden;
+  display: none;
 }
