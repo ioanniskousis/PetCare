@@ -25,7 +25,7 @@ class TreatmentPhotosController < ApplicationController
 
     respond_to do |format|
       if @treatment_photo.save
-        format.html { redirect_to @treatment_photo, notice: "Treatment photo was successfully created." }
+        format.html { redirect_to treatment_path(@treatment_photo.treatment_id), notice: "Treatment photo was successfully created." }
         format.json { render :show, status: :created, location: @treatment_photo }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TreatmentPhotosController < ApplicationController
   def update
     respond_to do |format|
       if @treatment_photo.update(treatment_photo_params)
-        format.html { redirect_to @treatment_photo, notice: "Treatment photo was successfully updated." }
+        format.html { redirect_to edit_treatment_photo_path(@treatment_photo), notice: "Treatment photo was successfully updated." }
         format.json { render :show, status: :ok, location: @treatment_photo }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class TreatmentPhotosController < ApplicationController
 
   # DELETE /treatment_photos/1 or /treatment_photos/1.json
   def destroy
-    @treatment = Treatment.find(params[:@treatment_id])
+    @treatment = Treatment.find(params[:treatment_id])
     @treatment_photo.destroy
     respond_to do |format|
       format.html { redirect_to treatment_path(@treatment), notice: "Treatment photo was successfully destroyed." }

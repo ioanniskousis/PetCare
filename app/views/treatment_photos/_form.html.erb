@@ -1,17 +1,35 @@
 <%= form_with(model: treatment_photo) do |form| %>
-  <% if treatment_photo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(treatment_photo.errors.count, "error") %> prohibited this treatment_photo from being saved:</h2>
 
-      <ul>
-        <% treatment_photo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="detailsRow">
+    <div id="newPhotoFile">
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="itemDetail">
+    </div>
+    <div class="itemDetail" id="selectPhotoButtonContainer">
+      <input type="button" id="selectPhotoButton" value="Select Photo">
+    </div>
+    <div class="itemDetail" id="cancelUpdatePetImagePanel">
+      <input type="button" value="Cancel" id="cancelUpdatePetImageButton" />
+    </div>
   </div>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+  </div>
+
+  <%= form.file_field :photo, {id: "pet_image_photo"} %>
+
+  <div class="detailsRow">
+    <div class="itemDetail linkBox flex-start">
+      <%= link_to 'Delete this Photo', treatment_photo_path(@treatment_photo, treatment_id: @treatment_photo.treatment_id), method: :delete, data: { confirm: 'Are you sure you want to Delete this Photo ?' }, class: "redText" %>
+    </div>
+    <div class="itemDetail">
+    </div>
+    <div class="itemDetail">
+      <%= form.submit "Update" %>
+    </div>
+  </div>
+
 <% end %>

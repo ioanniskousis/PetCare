@@ -1,7 +1,11 @@
 <main class="main-container">
   <header class="page-header">
     <h2 >Editing Treatment Record</h2>
-    <%= link_to "Back", pet_treatments_path(@treatment.pet), class: 'pageLink' %>
+    <% if @treatment.pet %>
+      <%= link_to "Back", pet_treatments_path(@treatment.pet), class: 'pageLink' %>
+    <% else %>
+      <%= link_to "Back", treatments_path(user_id: @treatment.user_id), class: 'pageLink' %>
+    <% end %>
   </header>
   <div class="page-body">
     <%= render 'form', treatment: @treatment %>

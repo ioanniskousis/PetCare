@@ -11,16 +11,12 @@
     </div>
   <% end %>
 
-  <% unless treatment.pet_id.positive? %>
-    <div class="detailsRow">
-      <div class="itemDetail w100">
-        <%= form.label :pet %>
-        <%= form.select :pet_id, options_from_collection_for_select(treatment.user.pets, "id", "name"), include_blank: true %>
-      </div>
+  <div class="detailsRow">
+    <div class="itemDetail w100">
+      <%= form.label :pet %>
+      <%= form.select :pet_id, options_from_collection_for_select(treatment.user.pets, "id", "name", treatment.pet_id), include_blank: true %>
     </div>
-  <% else %>
-    <%= form.hidden_field :pet_id %>
-  <% end %>
+  </div>
 
   <div class="detailsRow">
     <div class="itemDetail">

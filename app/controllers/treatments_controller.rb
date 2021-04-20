@@ -8,8 +8,13 @@ class TreatmentsController < ApplicationController
       # @user = @pet.owner
       @treatments = @pet.treatments
     else
-      @user = User.find(params[:user_id])
-      @treatments = @user.treatments
+      if params[:user_id]
+        @user = User.find(params[:user_id])
+        @treatments = @user.treatments
+      else
+        @treatments = Treatment.all
+      end
+
     end
     
   end
@@ -43,7 +48,11 @@ class TreatmentsController < ApplicationController
 
     respond_to do |format|
       if @treatment.save
-        format.html { redirect_to treatment_path(@treatment), notice: "Treatment was successfully created." }
+        if @treatment.pet
+          format.html { redirect_to pet_treatments_path(@treatment.pet) }
+        else
+          format.html { redirect_to treatments_path(user_id: @treatment.user_id) }
+        end
         format.json { render :show, status: :created, location: @treatment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -56,7 +65,11 @@ class TreatmentsController < ApplicationController
   def update
     respond_to do |format|
       if @treatment.update(treatment_params)
-        format.html { redirect_to @treatment, notice: "Treatment was successfully updated." }
+        if @treatment.pet
+          format.html { redirect_to pet_treatments_path(@treatment.pet) }
+        else
+          format.html { redirect_to treatments_path(user_id: @treatment.user_id) }
+        end
         format.json { render :show, status: :ok, location: @treatment }
       else
         format.html { render :edit, status: :unprocessable_entity }
