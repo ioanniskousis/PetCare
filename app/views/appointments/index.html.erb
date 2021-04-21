@@ -40,7 +40,7 @@
           <div class="petLinks-right">
             <% if @user == current_user %>
               <div><%= link_to 'Edit', edit_user_appointment_path(appointment, user_id: @user.id) %></div>
-              <div><%= link_to 'Destroy', user_appointment_path(appointment, user_id: @user.id), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+              <div><%= link_to 'Delete', user_appointment_path(appointment, user_id: @user.id), method: :delete, data: { confirm: 'Are you sure?' } %></div>
             <% end %>
           </div>
         </div>
