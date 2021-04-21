@@ -1,7 +1,14 @@
+# Under Construction
+<hr/>
+
 <h1><a href="https://jk-petcare.herokuapp.com">Working Demo</a></h1>
+
 [![Heroku](https://pyheroku-badge.herokuapp.com/?app=blooming-meadow-82208)](https://jk-petcare.herokuapp.com)
 
-# Under Construction
+<br/>
+<hr/>
+
+<br/><br/>
 
 # README
 
