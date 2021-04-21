@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-  # resources :users
   resources :pets
   resources :pets do
     resources :pet_images
