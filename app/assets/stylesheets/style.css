@@ -169,9 +169,13 @@ input[type="button"]:active {
   justify-content: flex-end;
 }
 
+.flex {
+  display: flex;
+}
+
 .detailsRow {
   display: flex;
-  border-bottom: 1px solid #ffffe6;
+  border-bottom: 1px solid #ccc;
 }
 
 .itemDetail {
@@ -179,8 +183,6 @@ input[type="button"]:active {
   font-size: medium;
   padding: 10px;
   color: #359;
-  /* background-color: #ccc; */
-  /* border: 1px solid black; */
 }
 
 .itemDetail input[type="text"],
@@ -241,10 +243,71 @@ a.redText {
   justify-content: flex-start;
 }
 
+
+.col-flex-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .align-right {
   text-align: right;
 }
 
 .w100 select {
   width: 100%;
+}
+
+div.h100 {
+  height: 100%;
+}
+
+.home-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.home-caption {
+  padding-top: 10vh;
+  font-size: 10vw;
+  font-weight: bold;
+  height: 100%;
+  text-align: center;
+  text-shadow: 2px 1px white;
+  flex: 1;
+  color: #379;
+  background-image: url("home-image.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 50% auto;
+}
+
+.footer-text {
+  font-size: large;
+  display: flex;
+  padding: 20px;
+  background-color: #379;
+  color: #ddd;
+  /* text-align: center; */
+  /* height: 100%; */
+}
+
+.user-buttons {
+  width: 160px;
+  background-color: #379;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-buttons a {
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-buttons a:hover {
+  background-color: #999;
 }

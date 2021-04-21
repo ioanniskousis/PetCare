@@ -1,7 +1,7 @@
 <main class="main-container">
   <header class="page-header">
     <% if @owner %>
-      <h2 ><%= @owner.fullname + ': ' + @pets.length.to_s + ' Pets' %></h2>
+      <h3><%= @owner.fullname + ': ' + @pets.length.to_s + ' Pets' %></h3>
     <% end %>
     <%= link_to "New Pet", new_pet_path(owner: @owner), class: 'pageLink' %>
   </header>
@@ -21,7 +21,7 @@
               </div>
               <div class="detailsRow">
                 <div class="itemDetail"><%= pet.color %></div>
-                <div class="itemDetail"><%= pet.dateOfBirth %></div>
+                <div class="itemDetail"><%= pet.dateOfBirthCaption %></div>
               </div>
               <div class="detailsRow">
                 <div class="itemDetail"><%= pet.description %></div>

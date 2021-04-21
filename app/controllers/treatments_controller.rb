@@ -6,13 +6,13 @@ class TreatmentsController < ApplicationController
     if params[:pet_id]
       @pet = Pet.find(params[:pet_id])
       # @user = @pet.owner
-      @treatments = @pet.treatments
+      @treatments = @pet.treatments.order("date desc")
     else
       if params[:user_id]
         @user = User.find(params[:user_id])
-        @treatments = @user.treatments
+        @treatments = @user.treatments.order("date desc")
       else
-        @treatments = Treatment.all
+        @treatments = Treatment.all.order("date desc")
       end
 
     end

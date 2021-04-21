@@ -1,47 +1,41 @@
 <%= form_with(model: appointment) do |form| %>
-  <% if appointment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+  <%= form.hidden_field :user_id %>
 
-      <ul>
-        <% appointment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :datetime %>
+      <%= form.datetime_select :datetime %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <div class="itemDetail">
+      <%= form.label :done %>
+      <%= form.check_box :done, class: "custom-checkbox" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :datetime %>
-    <%= form.datetime_select :datetime %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="itemDetail">
+      <%= form.label :location %>
+      <%= form.text_field :location %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :content %>
+      <%= form.text_area :content %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+    </div>
+    <div class="itemDetail">
+      <%= form.submit %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :done %>
-    <%= form.check_box :done %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

@@ -5,6 +5,6 @@ class Treatment < ApplicationRecord
 
 
   def dateCaption
-    date ? date : 'date not set'
+    date ? date.strftime("%B %d, %Y, %H:%M") : 'date not set'
   end
 end

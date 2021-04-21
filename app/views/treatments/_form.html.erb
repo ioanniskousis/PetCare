@@ -1,15 +1,4 @@
 <%= form_with(model: treatment) do |form| %>
-  <% if treatment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(treatment.errors.count, "error") %> prohibited this treatment from being saved:</h2>
-
-      <ul>
-        <% treatment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="detailsRow">
     <div class="itemDetail w100">

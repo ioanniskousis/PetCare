@@ -1,5 +1,29 @@
-<ul>
-  <% @users.each do |user| %>
-    <li><%= user.firstname + ' ' + user.surname + ' ' + user.email %></li>
-  <% end %>
-</ul>
+<main class="main-container">
+  <header class="page-header">
+    <h3>Users Index</h3>
+  </header>
+  <div class="page-body">
+    
+      <% @users.each do |user| %>
+        <div class="petDetails">
+          <div class="detailsRow">
+            <div class="itemDetail">
+              <%= user.fullname %>
+            </div>
+            <div class="user-buttons">
+              <%= link_to pets_path(owner: user) do %>
+                <%= image_tag "home-image.png", size: '32x32' %>
+              <% end %>
+              <%= link_to treatments_path(user_id: user.id) do %>
+                <%= image_tag "treatment.png", size: '24x24' %>
+              <% end %>
+              <%= link_to appointments_path(user_id: user.id) do %>
+                <%= image_tag "calendar.png", size: '24x24' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    
+  </div>
+</main>

@@ -1,10 +1,10 @@
 <main class="main-container">
   <header class="page-header">
     <% if @treatment.pet %>
-      <h2 >Treatment Case: <%= @treatment.pet.name %></h2>
+      <h3>Treatment Case: <%= @treatment.pet.name %></h3>
       <%= link_to "Back", pet_treatments_path(@treatment.pet), class: 'pageLink' %>
     <% else %>
-      <h2 >Treatment Case</h2>
+      <h3>Treatment Case</h3>
       <%= link_to "Back", treatments_path(user_id: @treatment.user_id), class: 'pageLink' %>
     <% end%>
   </header>

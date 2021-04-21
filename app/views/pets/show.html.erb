@@ -1,6 +1,6 @@
 <main class="main-container">
   <header class="page-header">
-    <h2 >Pet Details</h2>
+    <h3>Pet Details</h3>
     <%= link_to "Back to pets", pets_path(owner: @owner), class: 'pageLink' %>
   </header>
   <div class="page-body">
@@ -50,7 +50,7 @@
           <div class="detailsRow">
             <div class="itemDetail">
               <strong>Birth:</strong>
-              <%= @pet.dateOfBirth %>
+              <%= @pet.dateOfBirthCaption %>
             </div>
           </div>
           <div class="detailsRow">

@@ -20,4 +20,8 @@ class Pet < ApplicationRecord
   def sterilisedCaption
     sterilised ? 'Sterilised' : 'Not Sterilised'
   end
+
+  def dateOfBirthCaption
+    dateOfBirth ? dateOfBirth.strftime("%B %d, %Y") : 'date not set'
+  end
 end

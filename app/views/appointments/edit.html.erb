@@ -1,6 +1,11 @@
-<h1>Editing Appointment</h1>
+<main class="main-container">
+  <header class="page-header">
+    <h3>Editing Appointment</h3>
+    <%= link_to 'Back', appointments_path(user_id: @appointment.user_id), class: 'pageLink' %>
+  </header>
+  <div class="page-body">
 
-<%= render 'form', appointment: @appointment %>
+    <%= render 'form', appointment: @appointment %>
 
-<%= link_to 'Show', @appointment %> |
-<%= link_to 'Back', appointments_path %>
+  </div>
+</main>
