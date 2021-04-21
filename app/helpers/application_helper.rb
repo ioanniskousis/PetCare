@@ -64,4 +64,9 @@ module ApplicationHelper
       link_to("Appointments", user_appointments_path(user_id: current_user.id))
     end
   end
+
+  def images_store
+    "https://storage.googleapis.com/pets_bucket_1/interface_images"
+  end
+
 end

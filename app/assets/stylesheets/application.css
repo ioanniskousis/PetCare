@@ -97,16 +97,16 @@
 }
 
 .toMyPets {
-  background-image: url('pets-company.jpg');
+  background-image: url('https://storage.googleapis.com/pets_bucket_1/interface_images/pets-company.jpg');
 
 }
 
 .toMyTreatments {
-  background-image: url('vet-1.jpg');
+  background-image: url('https://storage.googleapis.com/pets_bucket_1/interface_images/vet-1.jpg');
 }
 
 .toMyAppointments {
-  background-image: url('pet-appointments.jpg');
+  background-image: url('https://storage.googleapis.com/pets_bucket_1/interface_images/pet-appointments.jpg');
 }
 
 .main-header {
