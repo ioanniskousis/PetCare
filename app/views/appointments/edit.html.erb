@@ -1,7 +1,7 @@
 <main class="main-container">
   <header class="page-header">
     <h3>Editing Appointment</h3>
-    <%= link_to 'Back', appointments_path(user_id: @appointment.user_id), class: 'pageLink' %>
+    <%= link_to 'Back', user_appointments_path(user_id: @appointment.user_id), class: 'pageLink' %>
   </header>
   <div class="page-body">
 

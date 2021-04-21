@@ -5,12 +5,14 @@
     </div>
     <div class="itemDetail">
     </div>
-    <div class="itemDetail" id="selectPhotoButtonContainer">
-      <input type="button" id="selectPhotoButton" value="Select Photo">
-    </div>
-    <div class="itemDetail" id="cancelUpdatePetImagePanel">
-      <input type="button" value="Cancel" id="cancelUpdatePetImageButton" />
-    </div>
+    <% if @owner == current_user %>
+      <div class="itemDetail" id="selectPhotoButtonContainer">
+        <input type="button" id="selectPhotoButton" value="Select Photo">
+      </div>
+      <div class="itemDetail" id="cancelUpdatePetImagePanel">
+        <input type="button" value="Cancel" id="cancelUpdatePetImageButton" />
+      </div>
+    <% end %>
   </div>
   <div class="detailsRow">
     <div class="itemDetail">
@@ -21,16 +23,18 @@
 
   <%= form.file_field :photo, {id: "pet_image_photo"} %>
 
-  <div class="detailsRow">
-    <div class="itemDetail linkBox flex-start">
-      <%= link_to 'Delete this Pet Image', pet_image_path(@pet_image, pet_id: @pet.id), method: :delete, data: { confirm: 'Are you sure you want to Delete this Photo ?' }, class: "redText" %>
+  <% if @owner == current_user %>
+    <div class="detailsRow">
+      <div class="itemDetail linkBox flex-start">
+        <%= link_to 'Delete this Pet Image', pet_image_path(@pet_image, pet_id: @pet.id), method: :delete, data: { confirm: 'Are you sure you want to Delete this Photo ?' }, class: "redText" %>
+      </div>
+      <div class="itemDetail">
+      </div>
+      <div class="itemDetail">
+        <%= form.submit "Update" %>
+      </div>
     </div>
-    <div class="itemDetail">
-    </div>
-    <div class="itemDetail">
-      <%= form.submit "Update" %>
-    </div>
-  </div>
+  <% end %>
 
 
 <% end %>

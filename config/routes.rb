@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   resources :user do
     resources :treatments
   end
-  resources :appointments
+  resources :appointments, except: [:show]
   resources :users do
-    resources :appointments
+    resources :appointments, except: [:show]
   end
 
 end

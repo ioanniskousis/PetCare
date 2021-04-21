@@ -4,20 +4,26 @@
       <h3 ><%= @user.fullname %>: Treatment history</h3>
       <div class="page-header-links">
         <%= link_to "Back", dashboard_path, class: 'pageLink' %>
-        <%= link_to 'New', new_treatment_path(@user), class: 'pageLink' %>
+        <% if @user == current_user %>
+          <%= link_to 'New', new_treatment_path(@user), class: 'pageLink' %>
+        <% end %>
       </div>
     <% else %>
       <% if @pet %>
         <h3 ><%= @pet.name + ': Treatment history' %></h3>
         <div class="page-header-links">
           <%= link_to "Back", pet_path(@pet), class: 'pageLink' %>
-          <%= link_to 'New', new_treatment_path(pet_id: @pet), class: 'pageLink' %>
+          <% if @user == current_user %>
+            <%= link_to 'New', new_treatment_path(pet_id: @pet), class: 'pageLink' %>
+          <% end %>
         </div>
       <% else %>
         <h3 ><%= 'Treatment history' %></h3>
         <div class="page-header-links">
           <%= link_to "Back", dashboard_path, class: 'pageLink' %>
-          <%= link_to 'New', new_treatment_path, class: 'pageLink' %>
+          <% if @user == current_user %>
+            <%= link_to 'New', new_treatment_path, class: 'pageLink' %>
+          <% end %>
         </div>
       <% end %>
     <% end %>
@@ -47,8 +53,12 @@
           </div>
           <div class="petLinks flex-end">
             <div class="petLinks-right">
-              <%= link_to treatment.treatment_photos.length.to_s + ' Photos', treatment_path(treatment) %>
-              <%= link_to 'Edit', edit_treatment_path(treatment) %>
+              <% if (treatment.user == current_user) || (treatment.treatment_photos.length.positive?) %>
+                <%= link_to treatment.treatment_photos.length.to_s + ' Photos', treatment_path(treatment) %>
+              <% end %>
+              <% if treatment.user == current_user %>
+                <%= link_to 'Edit', edit_treatment_path(treatment) %>
+              <% end %>
             </div>
           </div>
         </div>

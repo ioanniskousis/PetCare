@@ -3,7 +3,9 @@
     <h3><%= @user.fullname %>: Appointments</h3>
     <div class="page-header-links">
       <%= link_to "Back", dashboard_path, class: 'pageLink' %>
-      <%= link_to 'New', new_user_appointment_path(user_id: current_user.id), class: 'pageLink' %>
+      <% if @user == current_user %>
+        <%= link_to 'New', new_user_appointment_path(@user), class: 'pageLink' %>
+      <% end %>
     </div>
   </header>
   <div class="page-body">
@@ -37,8 +39,8 @@
           <div></div>
           <div class="petLinks-right">
             <% if @user == current_user %>
-              <div><%= link_to 'Edit', edit_appointment_path(appointment) %></div>
-              <div><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+              <div><%= link_to 'Edit', edit_user_appointment_path(appointment, user_id: @user.id) %></div>
+              <div><%= link_to 'Destroy', user_appointment_path(appointment, user_id: @user.id), method: :delete, data: { confirm: 'Are you sure?' } %></div>
             <% end %>
           </div>
         </div>

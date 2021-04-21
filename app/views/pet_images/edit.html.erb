@@ -16,4 +16,6 @@
 
   </div>
 </main>
-<%= javascript_pack_tag 'pet_edit' %>
+<% if @owner == current_user %>
+  <%= javascript_pack_tag 'pet_edit' %>
+<% end %>

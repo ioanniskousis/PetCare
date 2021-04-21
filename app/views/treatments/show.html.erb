@@ -48,35 +48,36 @@
           <% end %>
         <% end %>
       </div>
-      <div class="addPhotoButtonContainer">
-        <div id="newPhotoFile">
+      <% if @treatment.user == current_user %>
+        <div class="addPhotoButtonContainer">
+          <div id="newPhotoFile">
+          </div>
+          <input type="button" id="addPhotoButton" value="Add New Photo">
         </div>
-        <input type="button" id="addPhotoButton" value="Add New Photo">
-      </div>
 
-      <div id="addPetPhotoPanel">
-        <%= form_for(@treatment_photo) do |form| %>
-          <%= form.hidden_field :treatment_id %>
-          <%= form.file_field :photo, {id: "pet_image_photo"} %>
+        <div id="addPetPhotoPanel">
+          <%= form_for(@treatment_photo) do |form| %>
+            <%= form.hidden_field :treatment_id %>
+            <%= form.file_field :photo, {id: "pet_image_photo"} %>
 
-          
-          <div class="itemDetail">
-            <%= form.label :description %>
-            <%= form.text_field :description %>
-          </div>
-
-          <div class="detailsRow">
+            
             <div class="itemDetail">
-              <%= form.submit("Save New Photo", {id: "save_image"}) %>
+              <%= form.label :description %>
+              <%= form.text_field :description %>
             </div>
-            <div class="itemDetail">
-              <input type="button" value="Cancel" id="cancelNewPhoto" />
+
+            <div class="detailsRow">
+              <div class="itemDetail">
+                <%= form.submit("Save New Photo", {id: "save_image"}) %>
+              </div>
+              <div class="itemDetail">
+                <input type="button" value="Cancel" id="cancelNewPhoto" />
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
 
-      </div>
-
+        </div>
+      <% end %>
     <br/>
 
     <%#= link_to 'Edit', edit_treatment_path(@treatment) %>
@@ -86,4 +87,6 @@
   
   
 </main>
-<%= javascript_pack_tag 'pet_show' %>
+<% if @treatment.user == current_user %>
+  <%= javascript_pack_tag 'pet_show' %>
+<% end %>

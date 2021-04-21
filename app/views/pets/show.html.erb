@@ -65,8 +65,10 @@
             <%= link_to 'Treatment', pet_treatments_path(@pet) %>
           </div>
           <div class="petLinks-right">
-            <%= link_to 'Edit', edit_pet_path(@pet) %>
-            <%= link_to 'Delete this pet', @pet, method: :delete, data: { confirm: 'Are you sure you want to Delete this pet ?' }, class: "redText" %>
+            <% if @user == current_user %>
+              <%= link_to 'Edit', edit_pet_path(@pet) %>
+              <%= link_to 'Delete this pet', @pet, method: :delete, data: { confirm: 'Are you sure you want to Delete this pet ?' }, class: "redText" %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -89,33 +91,37 @@
           <% end %>
         <% end %>
       </div>
-      <div class="addPhotoButtonContainer">
-        <div id="newPhotoFile">
+      <% if @owner == current_user %>
+        <div class="addPhotoButtonContainer">
+          <div id="newPhotoFile">
+          </div>
+          <input type="button" id="addPhotoButton" value="Add New Photo">
         </div>
-        <input type="button" id="addPhotoButton" value="Add New Photo">
-      </div>
-      <div id="addPetPhotoPanel">
-        <%= form_for(@pet_image) do |form| %>
-          <%= form.hidden_field :pet_id %>
-          <%= form.file_field :photo, {id: "pet_image_photo"} %>
+        <div id="addPetPhotoPanel">
+          <%= form_for(@pet_image) do |form| %>
+            <%= form.hidden_field :pet_id %>
+            <%= form.file_field :photo, {id: "pet_image_photo"} %>
 
-          <div class="itemDetail">
-            <%= form.label :description %>
-            <%= form.text_field :description %>
-          </div>
-
-          <div class="detailsRow">
             <div class="itemDetail">
-              <%= form.submit("Save New Photo", {id: "save_image"}) %>
+              <%= form.label :description %>
+              <%= form.text_field :description %>
             </div>
-            <div class="itemDetail">
-              <input type="button" value="Cancel" id="cancelNewPhoto" />
-            </div>
-          </div>
-        <% end %>
 
-      </div>
+            <div class="detailsRow">
+              <div class="itemDetail">
+                <%= form.submit("Save New Photo", {id: "save_image"}) %>
+              </div>
+              <div class="itemDetail">
+                <input type="button" value="Cancel" id="cancelNewPhoto" />
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      <% end %>
     </section>
   </div>
 </main>
-<%= javascript_pack_tag 'pet_show' %>
+<% if @owner == current_user %>
+  <%= javascript_pack_tag 'pet_show' %>
+<% end %>

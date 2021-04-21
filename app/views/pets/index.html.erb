@@ -3,7 +3,9 @@
     <% if @owner %>
       <h3><%= @owner.fullname + ': ' + @pets.length.to_s + ' Pets' %></h3>
     <% end %>
-    <%= link_to "New Pet", new_pet_path(owner: @owner), class: 'pageLink' %>
+    <% if @owner == current_user %>
+      <%= link_to "New Pet", new_pet_path(owner: @owner), class: 'pageLink' %>
+    <% end %>
   </header>
   <div class="page-body">
     <% @pets.each do |pet| %>
@@ -33,8 +35,10 @@
               </div>
               <div class="petLinks-right">
                 <%= link_to 'More..', pet %>
-                <%= link_to 'Edit', edit_pet_path(pet) %>
-                <%#= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% if @owner == current_user %>
+                  <%= link_to 'Edit', edit_pet_path(pet) %>
+                  <%#= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -42,10 +46,7 @@
             <%= petFirstPhoto(pet) %>
           </div>
         </div>
-        <!--
-        <div style="height:40px; border: 1px solid #ccc; border-radius: 4px; margin: -9px 10px 0 10px;">
-        </div>
-        -->
+
       </section>
       <hr/>
     <% end %>

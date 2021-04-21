@@ -18,4 +18,6 @@
 
   </div>
 </main>
-<%= javascript_pack_tag 'pet_edit' %>
+<% if @treatment_photo.treatment.user == current_user %>
+  <%= javascript_pack_tag 'pet_edit' %>
+<% end %>

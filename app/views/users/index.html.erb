@@ -17,7 +17,7 @@
               <%= link_to treatments_path(user_id: user.id) do %>
                 <%= image_tag "treatment.png", size: '24x24' %>
               <% end %>
-              <%= link_to appointments_path(user_id: user.id) do %>
+              <%= link_to user_appointments_path(user) do %>
                 <%= image_tag "calendar.png", size: '24x24' %>
               <% end %>
             </div>
