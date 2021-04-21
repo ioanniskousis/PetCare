@@ -23,7 +23,7 @@
 
   <%= form.file_field :photo, {id: "pet_image_photo"} %>
 
-  <% if @owner == current_user %>
+  <% if pet_image.pet.owner == current_user %>
     <div class="detailsRow">
       <div class="itemDetail linkBox flex-start">
         <%= link_to 'Delete this Pet Image', pet_image_path(@pet_image, pet_id: @pet.id), method: :delete, data: { confirm: 'Are you sure you want to Delete this Photo ?' }, class: "redText" %>

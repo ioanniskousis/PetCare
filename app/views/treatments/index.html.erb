@@ -54,7 +54,7 @@
           <div class="petLinks flex-end">
             <div class="petLinks-right">
               <% if (treatment.user == current_user) || (treatment.treatment_photos.length.positive?) %>
-                <%= link_to treatment.treatment_photos.length.to_s + ' Photos', treatment_path(treatment) %>
+                <%= link_to treatment.treatment_photos.length.to_s + ' Photo' + (treatment.treatment_photos.length == 1 ? '' : 's'), treatment_path(treatment) %>
               <% end %>
               <% if treatment.user == current_user %>
                 <%= link_to 'Edit', edit_treatment_path(treatment) %>

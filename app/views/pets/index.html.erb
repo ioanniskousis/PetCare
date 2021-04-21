@@ -1,7 +1,7 @@
 <main class="main-container">
   <header class="page-header">
     <% if @owner %>
-      <h3><%= @owner.fullname + ': ' + @pets.length.to_s + ' Pets' %></h3>
+      <h3><%= @owner.fullname + ': ' + @pets.length.to_s + ' Pet' + (@pets.length == 1 ? '' : 's') %></h3>
     <% end %>
     <% if @owner == current_user %>
       <%= link_to "New Pet", new_pet_path(owner: @owner), class: 'pageLink' %>

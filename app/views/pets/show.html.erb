@@ -65,7 +65,7 @@
             <%= link_to 'Treatment', pet_treatments_path(@pet) %>
           </div>
           <div class="petLinks-right">
-            <% if @user == current_user %>
+            <% if @owner == current_user %>
               <%= link_to 'Edit', edit_pet_path(@pet) %>
               <%= link_to 'Delete this pet', @pet, method: :delete, data: { confirm: 'Are you sure you want to Delete this pet ?' }, class: "redText" %>
             <% end %>
