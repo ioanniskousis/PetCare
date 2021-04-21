@@ -66,7 +66,7 @@ module ApplicationHelper
   end
 
   def images_store
-    "https://storage.googleapis.com/pets_bucket_1/interface_images"
+    "https://storage.googleapis.com/pets_bucket_1/interface_images/"
   end
 
 end
