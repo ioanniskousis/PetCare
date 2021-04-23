@@ -1,5 +1,6 @@
 <div class="petPhotos">
   <% @pet.pet_images.each do |image| %>
+    
     <% if image.photo.persisted? %>
       <div class="petPhotoContainer">
         <%= link_to edit_pet_image_path(image) do %>
@@ -14,6 +15,7 @@
         <% end %>
       </div>
     <% end %>
+
   <% end %>
 </div>
 <% if @owner == current_user %>
