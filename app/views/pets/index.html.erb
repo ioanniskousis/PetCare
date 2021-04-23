@@ -1,11 +1,7 @@
 <main class="main-container">
   <header class="page-header">
-    <% if @owner %>
-      <h3><%= @owner.fullname + ': ' + @pets.length.to_s + ' Pet' + (@pets.length == 1 ? '' : 's') %></h3>
-    <% end %>
-    <% if @owner == current_user %>
-      <%= link_to "New Pet", new_pet_path(owner: @owner), class: 'pageLink' %>
-    <% end %>
+    <%= petsIndexOwnerCaption(@owner) %>
+    <%= petsIndexNewPetLink(@owner) %>
   </header>
   <div class="page-body">
     <% @pets.each do |pet| %>
@@ -29,18 +25,9 @@
                 <div class="itemDetail"><%= pet.description %></div>
               </div>
             </div>
-            <div class="petLinks">
-              <div class="petLinks-left">
-                <%= link_to 'Treatment', pet_treatments_path(pet) %>
-              </div>
-              <div class="petLinks-right">
-                <%= link_to 'More..', pet %>
-                <% if @owner == current_user %>
-                  <%= link_to 'Edit', edit_pet_path(pet) %>
-                  <%#= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %>
-              </div>
-            </div>
+            
+            <%= petPanelLinks(@owner, pet) %>
+
           </div>
           <div class="petPanelImage">
             <%= petFirstPhoto(pet) %>

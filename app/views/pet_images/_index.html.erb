@@ -1,0 +1,46 @@
+<div class="petPhotos">
+  <% @pet.pet_images.each do |image| %>
+    <% if image.photo.persisted? %>
+      <div class="petPhotoContainer">
+        <%= link_to edit_pet_image_path(image) do %>
+          <div class="petPhotoDescription">
+            <%= image.description %>
+          </div>
+          <div class="petPhotoPanel">
+            <div class="petPhoto">
+                <%= image_tag image.photo %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<% if @owner == current_user %>
+  <div class="addPhotoButtonContainer">
+    <div id="newPhotoFile">
+    </div>
+    <input type="button" id="addPhotoButton" value="Add New Photo">
+  </div>
+  <div id="addPetPhotoPanel">
+    <%= form_for(@pet_image) do |form| %>
+      <%= form.hidden_field :pet_id %>
+      <%= form.file_field :photo, {id: "pet_image_photo"} %>
+
+      <div class="itemDetail">
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+      </div>
+
+      <div class="detailsRow">
+        <div class="itemDetail">
+          <%= form.submit("Save New Photo", {id: "save_image"}) %>
+        </div>
+        <div class="itemDetail">
+          <input type="button" value="Cancel" id="cancelNewPhoto" />
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+<% end %>

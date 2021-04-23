@@ -1,11 +1,6 @@
 <main class="main-container">
   <header class="page-header">
-    <% if @owner %>
-      <h2 ><%= @owner.fullname + ': New Pet' %></h2>
-    <% else %>
-      <h2 >New Pet</h2>
-    <% end %>
-
+    <h3><%= @owner.fullname + ': New Pet' %></h3>
     <%= link_to "Back to pets", pets_path(owner: @owner), class: 'pageLink' %>
   </header>
   <div class="page-body">

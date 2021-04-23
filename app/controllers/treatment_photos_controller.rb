@@ -49,7 +49,7 @@ class TreatmentPhotosController < ApplicationController
 
   # DELETE /treatment_photos/1 or /treatment_photos/1.json
   def destroy
-    @treatment = Treatment.find(params[:treatment_id])
+    @treatment = @treatment_photo.treatment
     @treatment_photo.destroy
     respond_to do |format|
       format.html { redirect_to treatment_path(@treatment), notice: "Treatment photo was successfully destroyed." }

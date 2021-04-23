@@ -1,31 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="petPhotos">
+  <% @pet_images.each do |image| %>
+    
+      <div class="petPhotoContainer">
+        <%= link_to edit_pet_image_path(image) do %>
+          <div class="petPhotoDescription">
+            <%= image.description %>
+          </div>
+          <div class="petPhotoPanel">
+            <div class="petPhoto">
+              <% if image.photo.persisted? %>
+                <%= image_tag image.photo %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    
+  <% end %>
+</div>
 
-<h1>Pet Images</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pet_images.each do |pet_image| %>
-      <tr>
-        <td style="background-color: #ccc;">
-          <% if pet_image.photo.persisted? %>
-            <%= image_tag pet_image.photo.variant(resize_to_limit: [150, 150]) %>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', pet_image %></td>
-        <td><%= link_to 'Edit', edit_pet_image_path(pet_image) %></td>
-        <td><%= link_to 'Destroy', pet_image_path(id: pet_image,  pet_id: @pet), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%#= link_to 'New Pet Image', new_pet_image_path %>
-<%#= link_to 'Back to ' + @pet.name, pet_path(@pet) %>

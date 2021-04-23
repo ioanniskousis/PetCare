@@ -1,4 +1,5 @@
 function createEvents() {
+ 
   const selectPhotoButton = document.getElementById("selectPhotoButton");
   const selectPhotoButtonContainer = document.getElementById("selectPhotoButtonContainer");
   const pet_image_photo = document.getElementById("pet_image_photo");
@@ -27,6 +28,7 @@ function createEvents() {
     selectPhotoButtonContainer.style.visibility = "hidden";
     selectPhotoButtonContainer.style.display = "none";
   }
+
 }
 
 createEvents();

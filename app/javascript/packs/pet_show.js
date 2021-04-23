@@ -22,6 +22,8 @@ function createEvents() {
 
     addPhotoButton.style.visibility = "hidden";
   }
+
+
 }
 
 createEvents();

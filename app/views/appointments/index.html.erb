@@ -3,14 +3,11 @@
     <h3><%= @user.fullname %>: Appointments</h3>
     <div class="page-header-links">
       <%= link_to "Back", dashboard_path, class: 'pageLink' %>
-      <% if @user == current_user %>
-        <%= link_to 'New', new_user_appointment_path(@user), class: 'pageLink' %>
-      <% end %>
+      <%= appointmentsIndexNewAppointmentLink(@user) %>
     </div>
   </header>
   <div class="page-body">
     <% @appointments.each do |appointment| %>
-      <%#= appointment.user_id %>
       <div class="petDetails">
         <div class="petFields">
           <div class="detailsRow">
@@ -35,15 +32,9 @@
             </div>
           </div>
         </div>
-        <div class="petLinks">
-          <div></div>
-          <div class="petLinks-right">
-            <% if @user == current_user %>
-              <div><%= link_to 'Edit', edit_user_appointment_path(appointment, user_id: @user.id) %></div>
-              <div><%= link_to 'Delete', user_appointment_path(appointment, user_id: @user.id), method: :delete, data: { confirm: 'Are you sure?' } %></div>
-            <% end %>
-          </div>
-        </div>
+
+        <%= appointmentPanelLinks(appointment, @user) %>
+
       </div>
       <hr/>
     <% end %>

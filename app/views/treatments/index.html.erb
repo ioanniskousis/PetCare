@@ -5,7 +5,7 @@
       <div class="page-header-links">
         <%= link_to "Back", dashboard_path, class: 'pageLink' %>
         <% if @user == current_user %>
-          <%= link_to 'New', new_treatment_path(@user), class: 'pageLink' %>
+          <%= link_to 'New', new_treatment_path(user_id: @user), class: 'pageLink' %>
         <% end %>
       </div>
     <% else %>
@@ -69,7 +69,9 @@
     <% if @treatments.length.zero? %>
       <div class="page-body-msg">
         <h2>No treatment cases are recorded</h2>
-        <h3>Please click the New button to add</h3>
+        <% if @user == current_user %>
+          <h3>Please click the New button to add</h3>
+        <% end %>
       </div>
     <% end %>
   </div>

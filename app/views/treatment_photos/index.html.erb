@@ -12,9 +12,17 @@
   <tbody>
     <% @treatment_photos.each do |treatment_photo| %>
       <tr>
+        <td>
+          <%= treatment_photo.id %>
+        </td>
+        <td>
+          <% if treatment_photo.photo.persisted? %>
+            <%= image_tag treatment_photo.photo, size: '80x80' %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', treatment_photo %></td>
         <td><%= link_to 'Edit', edit_treatment_photo_path(treatment_photo) %></td>
-        <td><%= link_to 'Destroy', treatment_photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', treatment_photos_path(treatment_photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
