@@ -1,92 +1,89 @@
-<main class="main-container">
-  <header class="page-header">
-    <% if @treatment.pet %>
-      <h3>Treatment Case: <%= @treatment.pet.name %></h3>
-      <%= link_to "Back", pet_treatments_path(@treatment.pet), class: 'pageLink' %>
-    <% else %>
-      <h3>Treatment Case</h3>
-      <%= link_to "Back", treatments_path(user_id: @treatment.user_id), class: 'pageLink' %>
-    <% end%>
-  </header>
-  <div class="page-body">
-      <div class="petPanel">
-        <div class="petDetails">
-          <div class="petFields">
-            <div class="detailsRow">
-              <div class="itemDetail blueText"><%= @treatment.dateCaption %></div>
-              <% if @user %>
-                <div class="itemDetail brownText"><%= @treatment.pet ? @treatment.pet.name : '' %></div>
-              <% end %>
-              <div class="itemDetail align-right"><%= @treatment.location %></div>
-            </div>
-            <div class="detailsRow">
-              <div class="itemDetail"><%= @treatment.item %></div>
-              <div class="itemDetail align-right"><%= @treatment.cost %></div>
-            </div>
-            <div class="detailsRow">
-              <div class="itemDetail"><%= @treatment.description %></div>
-            </div>
+<header class="page-header">
+  <% if @treatment.pet %>
+    <h3>Treatment Case: <%= @treatment.pet.name %></h3>
+    <%= link_to "Back", pet_treatments_path(@treatment.pet), class: 'pageLink' %>
+  <% else %>
+    <h3>Treatment Case</h3>
+    <%= link_to "Back", treatments_path(user_id: @treatment.user_id), class: 'pageLink' %>
+  <% end%>
+</header>
+<div class="page-body">
+    <div class="petPanel">
+      <div class="petDetails">
+        <div class="petFields">
+          <div class="detailsRow">
+            <div class="itemDetail blueText"><%= @treatment.dateCaption %></div>
+            <% if @user %>
+              <div class="itemDetail brownText"><%= @treatment.pet ? @treatment.pet.name : '' %></div>
+            <% end %>
+            <div class="itemDetail align-right"><%= @treatment.location %></div>
+          </div>
+          <div class="detailsRow">
+            <div class="itemDetail"><%= @treatment.item %></div>
+            <div class="itemDetail align-right"><%= @treatment.cost %></div>
+          </div>
+          <div class="detailsRow">
+            <div class="itemDetail"><%= @treatment.description %></div>
           </div>
         </div>
       </div>
-      <hr/>
-      <div class="petPhotos">
-        <% @treatment.treatment_photos.each do |treatment_photo| %>
-          <% if treatment_photo.photo.persisted? %>
-            <div class="petPhotoContainer">
-              <%= link_to edit_treatment_photo_path(treatment_photo) do %>
-                <div class="petPhotoDescription">
-                  <%= treatment_photo.description %>
+    </div>
+    <hr/>
+    <div class="petPhotos">
+      <% @treatment.treatment_photos.each do |treatment_photo| %>
+        <% if treatment_photo.photo.persisted? %>
+          <div class="petPhotoContainer">
+            <%= link_to edit_treatment_photo_path(treatment_photo) do %>
+              <div class="petPhotoDescription">
+                <%= treatment_photo.description %>
+              </div>
+              <div class="petPhotoPanel">
+                <div class="petPhoto">
+                <%= image_tag treatment_photo.photo.variant(resize_to_limit: [150, nil]) %>
                 </div>
-                <div class="petPhotoPanel">
-                  <div class="petPhoto">
-                  <%= image_tag treatment_photo.photo.variant(resize_to_limit: [150, nil]) %>
-                  </div>
-                </div>
-              <% end %>  
-            </div>
-          <% end %>
+              </div>
+            <% end %>  
+          </div>
         <% end %>
-      </div>
-      <% if @treatment.user == current_user %>
-        <div class="addPhotoButtonContainer">
-          <div id="newPhotoFile">
-          </div>
-          <input type="button" id="addPhotoButton" value="Add New Photo">
-        </div>
-
-        <div id="addPetPhotoPanel">
-          <%= form_for(@treatment_photo) do |form| %>
-            <%= form.hidden_field :treatment_id %>
-            <%= form.file_field :photo, {id: "pet_image_photo"} %>
-
-            
-            <div class="itemDetail">
-              <%= form.label :description %>
-              <%= form.text_field :description %>
-            </div>
-
-            <div class="detailsRow">
-              <div class="itemDetail">
-                <%= form.submit("Save New Photo", {id: "save_image"}) %>
-              </div>
-              <div class="itemDetail">
-                <input type="button" value="Cancel" id="cancelNewPhoto" />
-              </div>
-            </div>
-          <% end %>
-
-        </div>
       <% end %>
-    <br/>
+    </div>
+    <% if @treatment.user == current_user %>
+      <div class="addPhotoButtonContainer">
+        <div id="newPhotoFile">
+        </div>
+        <input type="button" id="addPhotoButton" value="Add New Photo">
+      </div>
 
-    <%#= link_to 'Edit', edit_treatment_path(@treatment) %>
-    <%#= link_to 'Back to ' + @treatment.pet.name + ' treatment', pet_treatments_path(@treatment.pet) %>
+      <div id="addPetPhotoPanel">
+        <%= form_for(@treatment_photo) do |form| %>
+          <%= form.hidden_field :treatment_id %>
+          <%= form.file_field :photo, {id: "pet_image_photo"} %>
 
-  </div>
-  
-  
-</main>
+          
+          <div class="itemDetail">
+            <%= form.label :description %>
+            <%= form.text_field :description %>
+          </div>
+
+          <div class="detailsRow">
+            <div class="itemDetail">
+              <%= form.submit("Save New Photo", {id: "save_image"}) %>
+            </div>
+            <div class="itemDetail">
+              <input type="button" value="Cancel" id="cancelNewPhoto" />
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+  <br/>
+
+  <%#= link_to 'Edit', edit_treatment_path(@treatment) %>
+  <%#= link_to 'Back to ' + @treatment.pet.name + ' treatment', pet_treatments_path(@treatment.pet) %>
+
+</div>
+
 <% if @treatment.user == current_user %>
   <%= javascript_pack_tag 'pet_show' %>
 <% end %>

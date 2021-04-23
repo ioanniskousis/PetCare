@@ -1,6 +1,4 @@
 body {
-  /* background-color: #fff; */
-  /* background: linear-gradient(to top right, rgba(100, 100, 100, 0.3), rgba(0, 0, 0, 0)); */
   color: #333;
   margin: 0;
   padding: 0;
@@ -10,10 +8,8 @@ body {
 }
 
 body, p, ol, ul, td {
-  /* font-family: verdana, arial, helvetica, sans-serif; */
   font-family: 'Varela Round', sans-serif;
   font-size: 13px;
-  /* line-height: 18px; */
 }
 
 div, section, main {
@@ -198,13 +194,11 @@ input[type="button"]:active {
 }
 
 .radio-detail {
-  /* height: 40px; */
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
   justify-content: space-around;
   align-items: center;
-  /* background-color: greenyellow; */
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -292,8 +286,7 @@ div.h100 {
   padding: 20px;
   background-color: #379;
   color: #ddd;
-  /* text-align: center; */
-  /* height: 100%; */
+  z-index: 11;
 }
 
 .user-buttons {

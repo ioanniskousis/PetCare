@@ -1,42 +1,40 @@
-<main class="main-container">
-  <header class="page-header">
-    <h3><%= @user.fullname %>: Appointments</h3>
-    <div class="page-header-links">
-      <%= link_to "Back", dashboard_path, class: 'pageLink' %>
-      <%= appointmentsIndexNewAppointmentLink(@user) %>
-    </div>
-  </header>
-  <div class="page-body">
-    <% @appointments.each do |appointment| %>
-      <div class="petDetails">
-        <div class="petFields">
-          <div class="detailsRow">
-            <div class="itemDetail blueText">
-              <%= appointment.dateCaption %>
-            </div>
-            <div class="itemDetail align-right <%= appointment.doneClass %>" >
-              <%= appointment.doneBool %>
-            </div>
+<header class="page-header">
+  <h3><%= @user.fullname %>: Appointments</h3>
+  <div class="page-header-links">
+    <%= link_to "Back", dashboard_path, class: 'pageLink' %>
+    <%= appointmentsIndexNewAppointmentLink(@user) %>
+  </div>
+</header>
+<div class="page-body">
+  <% @appointments.each do |appointment| %>
+    <div class="petDetails">
+      <div class="petFields">
+        <div class="detailsRow">
+          <div class="itemDetail blueText">
+            <%= appointment.dateCaption %>
           </div>
-          <div class="detailsRow">
-            <div class="itemDetail">
-              <%= appointment.title %>
-            </div>
-            <div class="itemDetail align-right">
-              <%= appointment.location %>
-            </div>
-          </div>
-          <div class="detailsRow">
-            <div class="itemDetail">
-              <%= appointment.content %>
-            </div>
+          <div class="itemDetail align-right <%= appointment.doneClass %>" >
+            <%= appointment.doneBool %>
           </div>
         </div>
-
-        <%= appointmentPanelLinks(appointment, @user) %>
-
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <%= appointment.title %>
+          </div>
+          <div class="itemDetail align-right">
+            <%= appointment.location %>
+          </div>
+        </div>
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <%= appointment.content %>
+          </div>
+        </div>
       </div>
-      <hr/>
-    <% end %>
-  </div>
-</main>
+
+      <%= appointmentPanelLinks(appointment, @user) %>
+
+    </div>
+    <hr/>
+  <% end %>
+</div>

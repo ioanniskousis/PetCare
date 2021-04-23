@@ -1,21 +1,20 @@
-<main class="main-container">
-  <header class="page-header">
-    <h3>Editing Image of <%= @pet.name %></h3>
-    <%= link_to "Back to details", pet_path(@pet), class: 'pageLink' %>
-  </header>
-  <div class="page-body">
-    <div class="petPhotoPanel">
-      <div class="petPhotoEdit">
-        <% if @pet_image.photo.persisted? %>
-          <%= image_tag @pet_image.photo %>
-        <% end %>
-      </div>
+<header class="page-header">
+  <h3>Editing Image of <%= @pet.name %></h3>
+  <%= link_to "Back to details", pet_path(@pet), class: 'pageLink' %>
+</header>
+<div class="page-body">
+  <div class="petPhotoPanel">
+    <div class="petPhotoEdit">
+      <% if @pet_image.photo.persisted? %>
+        <%= image_tag @pet_image.photo %>
+      <% end %>
     </div>
-
-    <%= render 'form', pet_image: @pet_image %>
-
   </div>
-</main>
+
+  <%= render 'form', pet_image: @pet_image %>
+
+</div>
+
 <% if @pet.owner == current_user %>
   <%= javascript_pack_tag 'pet_edit' %>
 <% end %>

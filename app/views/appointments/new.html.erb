@@ -1,11 +1,9 @@
-<main class="main-container">
-  <header class="page-header">
-    <h3>New Appointment</h3>
-    <%= link_to 'Back', appointments_path(user_id: @user.id), class: 'pageLink' %>
-  </header>
-  <div class="page-body">
+<header class="page-header">
+  <h3>New Appointment</h3>
+  <%= link_to 'Back', appointments_path(user_id: @user.id), class: 'pageLink' %>
+</header>
+<div class="page-body">
 
-    <%= render 'form', appointment: @appointment %>
+  <%= render 'form', appointment: @appointment %>
 
-  </div>
-</main>
+</div>

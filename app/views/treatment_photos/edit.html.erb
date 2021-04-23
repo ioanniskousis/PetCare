@@ -1,23 +1,20 @@
-
-
-<main class="main-container">
-  <header class="page-header">
-    <h3>Editing Treatment Photo</h3>
-    <%= link_to "Back to Treatment", treatment_path(@treatment_photo.treatment_id), class: 'pageLink' %>
-  </header>
-  <div class="page-body">
-    <div class="petPhotoPanel">
-      <div class="petPhotoEdit">
-        <% if @treatment_photo.photo.persisted? %>
-          <%= image_tag @treatment_photo.photo %>
-        <% end %>
-      </div>
+<header class="page-header">
+  <h3>Editing Treatment Photo</h3>
+  <%= link_to "Back to Treatment", treatment_path(@treatment_photo.treatment_id), class: 'pageLink' %>
+</header>
+<div class="page-body">
+  <div class="petPhotoPanel">
+    <div class="petPhotoEdit">
+      <% if @treatment_photo.photo.persisted? %>
+        <%= image_tag @treatment_photo.photo %>
+      <% end %>
     </div>
-
-    <%= render 'form', treatment_photo: @treatment_photo %>
-
   </div>
-</main>
+
+  <%= render 'form', treatment_photo: @treatment_photo %>
+
+</div>
+
 <% if @treatment_photo.treatment.user == current_user %>
   <%= javascript_pack_tag 'pet_edit' %>
 <% end %>

@@ -1,24 +1,22 @@
-<main class="main-container">
-  <div class="main-inner">
-    <header class="main-header">
-      <h2>Log in</h2>
-    </header>
-    <div class="page-body devise-container">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="itemDetail">
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
+<div class="main-inner">
+  <header class="main-header">
+    <h2>Log in</h2>
+  </header>
+  <div class="page-body devise-container">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="itemDetail">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
 
-        <div class="itemDetail">
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
+      <div class="itemDetail">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
 
-        <div class="itemDetail">
-          <%= f.submit "Log in" %>
-        </div>
-      <% end %>
-    </div>
+      <div class="itemDetail">
+        <%= f.submit "Log in" %>
+      </div>
+    <% end %>
   </div>
-</main> 
+</div>

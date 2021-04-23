@@ -1,84 +1,83 @@
-<main class="main-container">
-  <header class="page-header">
-    <h3>Pet Details</h3>
-    <%= link_to "Back to pets", pets_path(owner: @owner), class: 'pageLink' %>
-  </header>
-  <div class="page-body" id="page-body" scroll="true">
-    <section>
-      <div class="petDetails">
-        <div class="petFields">
-          <div class="detailsRow">
-            <div class="itemDetail">
-              <strong>Name:</strong>
-              <%= @pet.name %>
-            </div>
-            <div class="itemDetail">
-              <strong>Owner:</strong>
-              <%= @pet.owner.fullname %>
-            </div>
+<header class="page-header">
+  <h3>Pet Details</h3>
+  <%= link_to "Back to pets", pets_path(owner: @owner), class: 'pageLink' %>
+</header>
+<div class="page-body" id="page-body" scroll="true">
+  <section>
+    <div class="petDetails">
+      <div class="petFields">
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <strong>Name:</strong>
+            <%= @pet.name %>
           </div>
-          <div class="detailsRow">
-            <div class="itemDetail">
-              <strong>Species:</strong>
-              <%= @pet.species %>
-            </div>
-            <div class="itemDetail">
-              <strong>Race:</strong>
-              <%= @pet.race %>
-            </div>
-          </div>
-          <div class="detailsRow">
-            <div class="itemDetail">
-              <strong>Gender:</strong>
-              <%= @pet.genderCaption %>
-            </div>
-            <div class="itemDetail">
-              <strong>Sterilised:</strong>
-              <%= @pet.sterilisedBool %>
-            </div>
-          </div>
-          <div class="detailsRow">
-            <div class="itemDetail">
-              <strong>Color:</strong>
-              <%= @pet.color %>
-            </div>
-            <div class="itemDetail">
-              <strong>Breed:</strong>
-              <%= @pet.breed %>
-            </div>
-          </div>
-          <div class="detailsRow">
-            <div class="itemDetail">
-              <strong>Birth:</strong>
-              <%= @pet.dateOfBirthCaption %>
-            </div>
-          </div>
-          <div class="detailsRow">
-            <div class="itemDetail">
-              <strong>Notes:</strong>
-              <%= @pet.description %>
-            </div>
+          <div class="itemDetail">
+            <strong>Owner:</strong>
+            <%= @pet.owner.fullname %>
           </div>
         </div>
-        <div class="petLinks" id="petLinks">
-          <div class="petLinks-left">
-            <%= link_to 'Treatment', pet_treatments_path(@pet) %>
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <strong>Species:</strong>
+            <%= @pet.species %>
           </div>
-          <div class="petLinks-right">
-            <%= petShowEditLinks(@owner, @pet) %>
-
-
+          <div class="itemDetail">
+            <strong>Race:</strong>
+            <%= @pet.race %>
           </div>
-
+        </div>
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <strong>Gender:</strong>
+            <%= @pet.genderCaption %>
+          </div>
+          <div class="itemDetail">
+            <strong>Sterilised:</strong>
+            <%= @pet.sterilisedBool %>
+          </div>
+        </div>
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <strong>Color:</strong>
+            <%= @pet.color %>
+          </div>
+          <div class="itemDetail">
+            <strong>Breed:</strong>
+            <%= @pet.breed %>
+          </div>
+        </div>
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <strong>Birth:</strong>
+            <%= @pet.dateOfBirthCaption %>
+          </div>
+        </div>
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <strong>Notes:</strong>
+            <%= @pet.description %>
+          </div>
         </div>
       </div>
-      <hr/>
+      <div class="petLinks" id="petLinks">
+        <div class="petLinks-left">
+          <%= link_to 'Treatment', pet_treatments_path(@pet) %>
+        </div>
+        <div class="petLinks-right">
+          <%= petShowEditLinks(@owner, @pet) %>
 
-      <%= render 'pet_images/index' %>
 
-    </section>
-  </div>
-</main>
+        </div>
+
+      </div>
+    </div>
+    <hr/>
+
+    <%= render 'pet_images/index' %>
+
+  </section>
+</div>
+
 <% if @owner == current_user %>
   <%= javascript_pack_tag 'pet_show' %>
 <% end %>
