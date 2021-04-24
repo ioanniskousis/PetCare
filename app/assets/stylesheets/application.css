@@ -190,7 +190,7 @@
 }
 
 .page-body {
-  padding: 20px 0;
+  padding: 10px 0;
   height: calc(100% - 40px);
   overflow-y: auto;
   background-color: rgba(225, 225, 225, 0.5);
@@ -263,10 +263,17 @@
   background-color: #bbb;
 }
 
+@media only screen and (max-width: 529px) {
+  .petDetails {
+    margin: 0 10px 10px 10px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .petDetails {
     min-width: 300px;
   }
+
   .topLabel {
     width: 0;
     display: none;
