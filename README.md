@@ -100,7 +100,25 @@ To run testing suite using RSpec in terminal window enter
 
 ## You can see it working in heroku [![Heroku](https://pyheroku-badge.herokuapp.com/?app=blooming-meadow-82208)](https://jk-petcare.herokuapp.com)
 
+
 <hr/>
+
+<!-- CONTACT -->
+
+## Contributors
+
+:bust_in_silhouette: **Author**
+
+## Ioannis Kousis
+
+- Github: [@ioanniskousis](https://github.com/ioanniskousis)
+- Twitter: [@ioanniskousis](https://twitter.com/ioanniskousis)
+- Linkedin: [Ioannis Kousis](https://www.linkedin.com/in/jgkousis)
+- E-mail: jgkousis@gmail.com
+
+
+<hr/>
+
 
 # README
 
