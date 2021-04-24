@@ -1,3 +1,5 @@
+# under construction
+
 # PetCare - a pet lovers' application
 
 ### The project aims for pet owners to track their treatment. Pet owners have to login to the application and insert information about any number of pets they own. They can record any event of their pets’ lives like vaccinations, illnesses, nutrition, grooming, weight control, everyday hobbies etc. . Also, users can schedule appointments with a vet or a groomer.
