@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :treatments, dependent: :destroy
 
   def fullname
-    firstname + ' ' + surname
+    f = firstname ? firstname : nil
+    f = f ? f + ' ' : ''
+    s = surname ? surname : ''
+    f + s
   end
 end

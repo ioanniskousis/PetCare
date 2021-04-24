@@ -60,6 +60,7 @@
 - [Dependencies](#dependencies)
 - [Configuration](#configuration)
 - [Development](#development)
+- [Testing](#testing)
 - [Built With](#built-with)
 - [Contributors](#contributors)
   
@@ -78,14 +79,28 @@
 <img src="app/assets/images/screenshots/pets-index.png" alt="pets-index">
 <hr />
 
+<!-- TEST -->
+
+## Testing
+RSpec has been used for testing the application.  
+Find test files in app/spec folder
+
+To run testing suite using RSpec in terminal window enter 
+
+```
+  rspec . --format documentation
+```
+
+<hr/>
 
 
 <!-- LIVE VERSION -->
 
 ## Live version
 
-## You can see it working [![Heroku](https://pyheroku-badge.herokuapp.com/?app=blooming-meadow-82208)](https://jk-petcare.herokuapp.com)
+## You can see it working in heroku [![Heroku](https://pyheroku-badge.herokuapp.com/?app=blooming-meadow-82208)](https://jk-petcare.herokuapp.com)
 
+<hr/>
 
 # README
 
