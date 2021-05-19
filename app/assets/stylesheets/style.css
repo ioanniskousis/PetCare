@@ -119,15 +119,20 @@ input[type="button"]:active {
   margin: 0 10px;
 }
 
+
 .top-bar div {
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.top-bar input[type="submit"] {
+.top-bar input[type="submit"],
+.top-bar button,
+.button_to input[type="submit"] {
   display: flex;
-  
+  justify-content: center;
+  align-items: center;
+
   border: none;
   background-color: transparent;
   height: 100%;
@@ -140,7 +145,8 @@ input[type="button"]:active {
   white-space: nowrap;
 }
 
-.top-bar input[type="submit"]:hover {
+.top-bar input[type="submit"]:hover,
+.top-bar button:hover {
   background-color: #000;
 }
 

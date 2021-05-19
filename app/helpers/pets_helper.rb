@@ -2,7 +2,11 @@ module PetsHelper
   def petFirstPhoto(pet)
     if pet.pet_images.count.positive?
       if pet.pet_images.first.photo.persisted?
-        image_tag(pet.pet_images.first.photo, width: "200")
+        if pet.pet_images.first.photo.metadata['width'] > pet.pet_images.first.photo.metadata['height']
+          image_tag(pet.pet_images.first.photo, height: "200")
+        else
+          image_tag(pet.pet_images.first.photo, width: "200")
+        end
       end
     end
   end

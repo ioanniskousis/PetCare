@@ -23,6 +23,12 @@ module ApplicationHelper
     end
   end
 
+  def startChatButton
+    if current_user
+      button_tag("Chat", id: 'startChatButton', onClick: 'chat_clicked()')
+    end
+  end
+
   def linkToLogIn
     if !current_user && (controller_name != 'sessions')
       link_to("Log in", new_session_path(:user))

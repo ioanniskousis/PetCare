@@ -39,6 +39,7 @@
   width: 100%;
   max-width: 800px;
   background-color: rgba(255, 255, 255, 1);
+  overflow-y: auto;
 }
 
 .main-container h1 {

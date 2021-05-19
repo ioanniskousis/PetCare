@@ -30,4 +30,14 @@ module PetImagesHelper
       end
     end
   end
+
+  def addPhotoButtonContainer(owner)
+    if owner == current_user
+      content_tag(:div, class:"addPhotoButtonContainer") do
+        content_tag(:div, id: "newPhotoFile") do
+        end +
+        tag.input(value:"Add New Photo", type:"button", id:"addPhotoButton")
+      end
+    end
+  end
 end
