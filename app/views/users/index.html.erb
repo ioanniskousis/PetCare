@@ -10,14 +10,17 @@
             <%= user.fullname %>
           </div>
           <div class="user-buttons">
-            <%= link_to pets_path(owner: user) do %>
+            <%= link_to(pets_path(owner: user), class: 'tipped') do %>
               <%= image_tag "home-image.png", size: '32x32' %>
+              <%= content_tag(:div, "Pets", class: "tiptext top") %>
             <% end %>
-            <%= link_to treatments_path(user_id: user.id) do %>
+            <%= link_to(treatments_path(user_id: user.id), class: 'tipped') do %>
               <%= image_tag "treatment.png", size: '24x24' %>
+              <%= content_tag(:div, "Treatment", class: "tiptext top") %>
             <% end %>
-            <%= link_to user_appointments_path(user) do %>
+            <%= link_to(user_appointments_path(user), class: 'tipped') do %>
               <%= image_tag "calendar.png", size: '24x24' %>
+              <%= content_tag(:div, "Appointments", class: "tiptext top right") %>
             <% end %>
           </div>
         </div>

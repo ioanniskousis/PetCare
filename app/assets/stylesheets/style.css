@@ -24,7 +24,7 @@ h1, h2, h3, h4 {
 
 label {
   display: block;
-  color: #357;
+  color: #379;
   font-size: 15px;
   font-weight: bold;
   margin-bottom: 4px;
@@ -113,6 +113,7 @@ form input[type="button"]:active {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 20;
 }
 
 .top-bar div {
