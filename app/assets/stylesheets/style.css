@@ -41,14 +41,14 @@ select {
   appearance: none;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="date"],
-input[type="button"],
-input[type="submit"],
-textarea,
-select {
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form input[type="button"],
+form input[type="submit"],
+form textarea,
+form select {
   font-family: inherit;
   font-size: 15px;
   padding: 10px;
@@ -58,8 +58,8 @@ select {
   border-radius: 4px;
 }
 
-input[type="submit"],
-input[type="button"] {
+form input[type="submit"],
+form input[type="button"] {
   background-color: #379;
   color: white;
   font-size: medium;
@@ -67,13 +67,13 @@ input[type="button"] {
   padding: 10px 20px;
 }
 
-input[type="submit"]:hover,
-input[type="button"]:hover {
+form input[type="submit"]:hover,
+form input[type="button"]:hover {
   background-color: #59c;
 }
 
-input[type="submit"]:active,
-input[type="button"]:active {
+form input[type="submit"]:active,
+form input[type="button"]:active {
   box-shadow: 0 0 4px 2px #359;
 }
 
@@ -115,11 +115,6 @@ input[type="button"]:active {
   align-items: center;
 }
 
-.top-bar img {
-  margin: 0 10px;
-}
-
-
 .top-bar div {
   height: 100%;
   display: flex;
@@ -127,7 +122,6 @@ input[type="button"]:active {
 }
 
 .top-bar input[type="submit"],
-.top-bar button,
 .button_to input[type="submit"] {
   display: flex;
   justify-content: center;
@@ -149,7 +143,7 @@ input[type="button"]:active {
 .top-bar button:hover {
   background-color: #000;
 }
-
+/* 
 .top-bar div a {
   display: flex;
   justify-content: center;
@@ -171,6 +165,31 @@ input[type="button"]:active {
 
 .top-bar div:nth-child(2) {
   justify-content: flex-end;
+} */
+
+.top-bar a,
+.top-bar button {
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+
+.top-bar a:hover {
+  background-color: #000;
+}
+
+.top-bar-link-img {
+  width: 40px;
+  height: 40px;
+}
+
+.top-bar-link-img-25 {
+  width: 25px;
+  height: 25px;
 }
 
 .flex {

@@ -8,48 +8,48 @@ module ApplicationHelper
   end
 
   def linkToRoot
-    link_to("Home", root_path)
+    link_to(image_tag('home-image.png', class: 'top-bar-link-img'), root_path)
   end
 
   def linkToDashboard
     if current_user
-      link_to("Dashboard", dashboard_path)
+      link_to(image_tag('dashboard.png', class: 'top-bar-link-img-25'), dashboard_path)
     end
   end
 
   def linkToUsers
     if current_user
-      link_to("Users", users_path, method: :get)
+      link_to(image_tag('users.png', class: 'top-bar-link-img-25'), users_path, method: :get)
     end
   end
 
   def startChatButton
     if current_user
-      button_tag("Chat", id: 'startChatButton', onClick: 'chat_clicked()')
+      button_tag(image_tag('chat.png', class: 'top-bar-link-img-25'), id: 'startChatButton', onClick: 'chat_clicked()')
     end
   end
 
   def linkToLogIn
     if !current_user && (controller_name != 'sessions')
-      link_to("Log in", new_session_path(:user))
+      link_to(image_tag('login.png', class: 'top-bar-link-img-25'), new_session_path(:user))
     end
   end
 
   def linkToSignUp
     if !current_user && (controller_name != 'registrations') 
-      link_to("Sign up", new_registration_path(:user))
+      link_to(image_tag('signup.png', class: 'top-bar-link-img-25'), new_registration_path(:user))
     end
   end
 
   def linkToForgot
     if controller_name == 'sessions' 
-      link_to("Forgot Password", new_password_path(:user))
+      link_to(image_tag('forgot.png', class: 'top-bar-link-img-25'), new_password_path(:user))
     end
   end
 
   def logoutButton
     if current_user
-      button_to("Logout", destroy_user_session_path, method: :delete)
+      link_to(image_tag('logout.png', class: 'top-bar-link-img-25'), destroy_user_session_path, method: :delete)
     end
   end
 
