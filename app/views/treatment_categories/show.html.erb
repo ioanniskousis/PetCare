@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Categoryname:</strong>
+  <%= @treatment_category.categoryName %>
+</p>
+
+<p>
+  <strong>Parentcategory:</strong>
+  <%= categoryParent(@treatment_category) %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @treatment_category.order %>
+</p>
+
+<%= link_to 'Edit', edit_treatment_category_path(@treatment_category) %> |
+<%= link_to 'Back', treatment_categories_path %>

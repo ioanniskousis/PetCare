@@ -1,3 +1,20 @@
+table {
+  margin: 20px 0;
+}
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
+th,
+td {
+  border: 1px solid #555;
+}
+
 body {
   color: #333;
   margin: 0;
@@ -144,6 +161,7 @@ form input[type="button"]:active {
 .top-bar button:hover {
   background-color: #000;
 }
+
 /* 
 .top-bar div a {
   display: flex;

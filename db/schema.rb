@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_080017) do
+ActiveRecord::Schema.define(version: 2021_05_19_141719) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,14 @@ ActiveRecord::Schema.define(version: 2021_04_19_080017) do
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
+  create_table "treatment_categories", force: :cascade do |t|
+    t.string "categoryName"
+    t.integer "parentCategory_id"
+    t.integer "order", default: 0
+    t.index ["order"], name: "index_treatment_categories_on_order"
+    t.index ["parentCategory_id"], name: "index_treatment_categories_on_parentCategory_id"
+  end
+
   create_table "treatment_photos", force: :cascade do |t|
     t.string "description"
     t.integer "treatment_id"
@@ -131,5 +139,6 @@ ActiveRecord::Schema.define(version: 2021_04_19_080017) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "users"
   add_foreign_key "pets", "users"
+  add_foreign_key "treatment_categories", "treatment_categories", column: "parentCategory_id"
   add_foreign_key "treatments", "users"
 end

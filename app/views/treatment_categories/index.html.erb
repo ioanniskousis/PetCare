@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Treatment Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Categoryname</th>
+      <th>Parentcategory</th>
+      <th>Order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @treatment_categories.each do |treatment_category| %>
+      <tr>
+        <td><%= treatment_category.categoryName %></td>
+        <td><%= categoryParent(treatment_category) %></td>
+        <td><%= treatment_category.order %></td>
+        <td><%= link_to 'Show', treatment_category %></td>
+        <td><%= link_to 'Edit', edit_treatment_category_path(treatment_category) %></td>
+        <td><%= link_to 'Destroy', treatment_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Treatment Category', new_treatment_category_path %>
