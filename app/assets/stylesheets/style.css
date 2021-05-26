@@ -241,7 +241,7 @@ form input[type="button"]:active {
 .itemDetail input[type="date"],
 .itemDetail input[type="time"],
 .itemDetail textarea,
-.categoryContainer select {
+.selectContainer select {
   width: 100%;
 }
 

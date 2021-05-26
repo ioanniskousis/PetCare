@@ -11,9 +11,9 @@
     </div>
   </div>
   <div class="detailsRow">
-    <div class="itemDetail">
+    <div class="itemDetail selectContainer">
       <%= form.label :species %>
-      <%= form.text_field :species %>
+      <%= form.select( :species_id, Species.all.collect { |s| [s.name, s.id] }, {include_blank: ''} ) %>
     </div>
 
     <div class="itemDetail">

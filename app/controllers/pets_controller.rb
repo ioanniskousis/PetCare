@@ -74,7 +74,7 @@ class PetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_params
-      params.require(:pet).permit(:name, :species, :race, :breed, :color, :dateOfBirth, :gender, :sterilised, :description, :user_id)
+      params.require(:pet).permit(:name, :species_id, :race, :breed, :color, :dateOfBirth, :gender, :sterilised, :description, :user_id)
     end
 
 

@@ -12,7 +12,7 @@
   </div>
 
   <div class="detailsRow">
-    <div class="itemDetail categoryContainer">
+    <div class="itemDetail selectContainer">
       <%= form.label :category_id %>
       <%= form.select( :category_id, TreatmentCategory.all.collect { |c| [c.categoryName, c.id] }, {include_blank: '- Select -'} ) %>
     </div>
