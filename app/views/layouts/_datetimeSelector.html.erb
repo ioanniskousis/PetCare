@@ -1,0 +1,219 @@
+<div class='background' id='datetime_selector_bg'>
+  <div id="calendarContainer" >
+    <div id="calendarDateDivision">
+
+      <div class="calendarYearController">
+        <div class="calendarYearContainer">
+          <input id="calendarYear" />
+        </div>
+        <div class="calendar-controls">
+          <div class="calendar-control" id="calendarSubYear">
+            <%= image_tag "arrow-left.png" %>
+          </div>
+          <div class="calendar-control" id="calendarAddYear" >
+            <%= image_tag "arrow-right.png" %>
+          </div>
+        </div>
+      </div>
+      <div class="calendarMonthController">
+        <div class="calendarMonthContainer">
+          <input id="calendarMonth" readonly=true />
+        </div>
+        <div class="calendar-controls">
+          <div class="calendar-control" id="calendarSubMonth">
+            <%= image_tag "arrow-left.png" %>
+          </div>
+          <div class="calendar-control" id="calendarAddMonth" >
+            <%= image_tag "arrow-right.png" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="calendarMonthGrid">
+        <div class="calendarButtonCaptions">
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+          <div>Sun</div>
+        </div>
+ 
+        <div class="calendarControllersRow" >
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-1"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-2"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-3"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-4"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-5"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-6"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-7"></div></div>
+        </div>
+
+        <div class="calendarControllersRow" >
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-8"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-9"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-10"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-11"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-12"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-13"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-14"></div></div>
+        </div>
+
+        <div class="calendarControllersRow" >
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-15"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-16"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-17"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-18"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-19"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-20"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-21"></div></div>
+        </div>
+
+        <div class="calendarControllersRow" >
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-22"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-23"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-24"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-25"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-26"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-27"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-28"></div></div>
+        </div>
+
+        <div class="calendarControllersRow" >
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-29"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-30"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-31"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-32"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-33"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-34"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-35"></div></div>
+        </div>
+
+        <div class="calendarControllersRow" >
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-36"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-37"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-38"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-39"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-40"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-41"></div></div>
+          <div class="calendarButtonContainer"><div class="dateButton" id="dateButton-42"></div></div>
+        </div>
+      </div>
+
+      <div class="calendarControllersRow shaded" >
+        <div class="calendarButtonContainer"><div class="calendarControlButton" id="calendarClose">Close</div></div>
+        <div class="calendarButtonContainer"><div class="calendarControlButton" id="calendarNow">Now</div></div>
+        <div class="calendarButtonContainer"><div class="calendarControlButton" id="calendarReset">Reset</div></div>
+      </div>
+
+    </div>
+
+    <div id="calendarTimeDivision">
+      <div class="calendarTimeContainer">
+        <input id="calendarTime" />
+      </div>
+
+      <div class="calendarTimeController">
+        <div class="calendarHoursController">
+          <div class="calendarHoursGrid">
+            <div class="calendarButtonCaptions">
+              <div>Hours</div>
+            </div>
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-0">00</div></div>
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-6">06</div></div>
+            </div>
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-1">01</div></div>
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-7">07</div></div>
+            </div>
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-2">02</div></div>
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-8">08</div></div>
+            </div>
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-3">03</div></div>
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-9">09</div></div>
+            </div>
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-4">04</div></div>
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-10">10</div></div>
+            </div>
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-5">05</div></div>
+              <div class="calendarButtonContainer"><div class="hourButton" id="hourButton-11">11</div></div>
+            </div>
+
+            <div class="calendarTrimsContainer">
+              <div class="calendarButtonContainer"><div class="trimButton" id="button-AM">AM</div></div>
+              <div class="calendarButtonContainer"><div class="trimButton" id="button-PM">PM</div></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="calendarMinutesController">
+          <div class="calendarMinutesGrid">
+            <div class="calendarButtonCaptions">
+              <div>Minutes</div>
+            </div>
+          
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-0">00</div></div>
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-6">30</div></div>
+            </div>
+
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-1">05</div></div>
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-7">35</div></div>
+            </div>
+
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-2">10</div></div>
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-8">40</div></div>
+            </div>
+
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-3">15</div></div>
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-9">45</div></div>
+            </div>
+
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-4">20</div></div>
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-10">50</div></div>
+            </div>
+
+            <div class="calendarControllersRow">
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-5">25</div></div>
+              <div class="calendarButtonContainer"><div class="minutesButton" id="minutesButton-11">55</div></div>
+            </div>
+
+            <div class="calendarTrimsContainer">
+              <div class="calendarButtonContainer"><div class="trimButton" id="button-min-dec">-</div></div>
+              <div class="calendarButtonContainer"><div class="trimButton" id="button-min-inc">+</div></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="monthSelector">
+      <div class="monthBox" value="0">January</div>
+      <div class="monthBox" value="1">February</div>
+      <div class="monthBox" value="2">March</div>
+      <div class="monthBox" value="3">April</div>
+      <div class="monthBox" value="4">May</div>
+      <div class="monthBox" value="5">June</div>
+      <div class="monthBox" value="6">July</div>
+      <div class="monthBox" value="7">August</div>
+      <div class="monthBox" value="8">September</div>
+      <div class="monthBox" value="9">October</div>
+      <div class="monthBox" value="10">November</div>
+      <div class="monthBox" value="11">December</div>
+
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'calendar' %>

@@ -13,12 +13,15 @@ class PetsController < ApplicationController
 
   # GET /pets/new
   def new
+    @showDateTimeSelector = true
     @owner = User.find(params[:owner])
     @pet = @owner.pets.new
+    @pet.dateOfBirth = Date.today
   end
 
   # GET /pets/1/edit
   def edit
+    @showDateTimeSelector = true
     @owner = @pet.owner
   end
 

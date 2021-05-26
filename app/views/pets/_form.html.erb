@@ -6,8 +6,8 @@
       <%= form.text_field :name, required: true %>
     </div>
     <div class="itemDetail">
-      <%= form.label :dateOfBirth, 'Date of birth' %>
-      <%= form.date_field :dateOfBirth %>
+      <label for="dateOfBirthInput">Date of birth</label>
+      <%= text_field :pet, :dateOfBirth, { dvalue: pet.dateOfBirth.strftime('%s'), value: pet.dateOfBirth.strftime('%a %d-%m-%Y'), id: 'dateOfBirthInput', readonly: true }  %>
     </div>
   </div>
   <div class="detailsRow">
@@ -76,3 +76,5 @@
     </div>
   </div>
 <% end %>
+
+<%= javascript_pack_tag 'pet_form' %>

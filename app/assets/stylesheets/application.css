@@ -301,19 +301,22 @@
   visibility: hidden;
   /* width: 120px; */
   padding: 0 20px;
-  background-color: #379;
-  color: white;
+  /* background-color: #379; */
+  background-color: rgba(255, 255, 255, 0.9);
+  /* color: white; */
+  color: #379;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid #379; */
-  font-size: medium;
+  border: 1px solid rgba(50, 50, 50, 0.3);
+  font-size: small;
   position: absolute;
   z-index: 20;
   /* top: 100%; */
   /* left: 0; */
-  height: 38px;
+  height: 24px;
   white-space: nowrap;
+  transition: all 1s ease-in-out 1s;
 }
 
 .tipped:hover .tiptext {
@@ -321,17 +324,29 @@
 }
 
 .left {
-  left: 0;
+  left: 2px;
 }
 
 .right {
-  right: 0;
+  right: 2px;
 }
 
 .bottom {
-  top: 100%;
+  top: calc(100% + 2px);
 }
 
 .top {
-  top: 0
+  top: 2px
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.0);
+  z-index: 100;
+  visibility: hidden;
+
 }

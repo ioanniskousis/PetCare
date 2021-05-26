@@ -6,13 +6,13 @@ class TreatmentsController < ApplicationController
     if params[:pet_id]
       @pet = Pet.find(params[:pet_id])
       # @user = @pet.owner
-      @treatments = @pet.treatments.order("date desc")
+      @treatments = @pet.treatments.order(date: :desc)
     else
       if params[:user_id]
         @user = User.find(params[:user_id])
-        @treatments = @user.treatments.order("date desc")
+        @treatments = @user.treatments.order(date: :desc)
       else
-        @treatments = Treatment.all.order("date desc")
+        @treatments = Treatment.all.order(date: :desc)
       end
 
     end
@@ -25,6 +25,7 @@ class TreatmentsController < ApplicationController
 
   # GET /treatments/new
   def new
+    @showDateTimeSelector = true
     if params[:pet_id]
       @pet = Pet.find(params[:pet_id])
       @user = @pet.owner
@@ -35,10 +36,12 @@ class TreatmentsController < ApplicationController
       @treatment = @user.treatments.new
       @treatment.pet_id = 0
     end
+    @treatment.date = DateTime.now
   end
 
   # GET /treatments/1/edit
   def edit
+    @showDateTimeSelector = true
   end
 
   # POST /treatments or /treatments.json
@@ -80,9 +83,12 @@ class TreatmentsController < ApplicationController
 
   # DELETE /treatments/1 or /treatments/1.json
   def destroy
+    @pet = @treatment.pet || Pet.new
+    @user = User.new
+    @user = @treatment.user if !@pet.id
     @treatment.destroy
     respond_to do |format|
-      format.html { redirect_to treatments_url, notice: "Treatment was successfully destroyed." }
+      format.html { redirect_to treatments_url(pet_id: @pet.id, user_id: @user.id), notice: "Treatment was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -98,6 +104,6 @@ class TreatmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def treatment_params
-      params.require(:treatment).permit(:pet_id, :user_id, :date, :item, :description, :cost, :location)
+      params.require(:treatment).permit(:pet_id, :user_id, :date, :category_id, :item, :description, :cost, :location)
     end
 end

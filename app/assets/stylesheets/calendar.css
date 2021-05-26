@@ -1,0 +1,227 @@
+#calendarContainer {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  background-color: #379;
+  display: flex;
+  /* font-size: small; */
+}
+
+#calendarContainer * {
+  font-size: small;
+}
+
+#calendarDateDivision {
+  flex: 1;
+}
+/* 
+.calendarControllers {
+  display: flex;
+} */
+
+.calendarControllersRow {
+  display: flex;
+}
+
+.calendarYearController,
+.calendarMonthController {
+  display: flex;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  /* flex: 1; */
+}
+/*  
+.calendarYearController {
+  flex: 4;
+}
+
+.calendarMonthController {
+  flex: 5;
+} */
+
+.calendarYearContainer,
+.calendarMonthContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* font-size: medium; */
+  flex: 1;
+}
+
+
+.calendarMonthContainer:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #379;
+} 
+
+#calendarYear,
+#calendarMonth,
+#calendarTime {
+  border: none;
+  background-color: transparent;
+  font-size: medium;
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.calendar-controls {
+  /* background-color: violet; */
+  width: 80px;
+  height: 100%;
+  display: flex;
+}
+
+.calendar-control {
+  /* border: 1px solid black; */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-control:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.calendar-control img {
+  width: 50%;
+  height: 50%;
+}
+
+#monthSelector {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #379;
+  color: white;
+  /* font-size: small; */
+}
+
+.monthBox {
+  height: 33px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.monthBox:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.calendarMonthGrid {
+  /* background-color: tomato; */
+  border-bottom: rgba(255, 255, 255, 0.2);
+}
+
+.calendarButtonCaptions {
+  display: flex;
+  height: 30px;
+  margin-top: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.calendarButtonCaptions div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* font-size: small; */
+}
+
+.calendarControllersRow {
+  display: flex;
+  height: 40px;
+  /* background-color: yellow; */
+}
+
+.calendarButtonContainer {
+  flex: 1;
+  padding: 4px;
+}
+
+.dateButton,
+.hourButton,
+.minutesButton,
+.trimButton,
+.calendarControlButton {
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: default;
+  border-radius: 2px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.dateButton:hover,
+.hourButton:hover,
+.minutesButton:hover,
+.trimButton:hover,
+.calendarControlButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dateButton:active,
+.hourButton:active,
+.minutesButton:active,
+.trimButton:active,
+.calendarControlButton:active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#calendarTimeDivision {
+  visibility: hidden;
+  /* background-color: yellow; */
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 200px;
+  display: block;
+}
+
+.calendarTimeContainer {
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.calendarTimeController {
+  display: flex;
+  /* width: 100%; */
+  height: calc(100% - 80px);
+}
+
+.calendarHoursController {
+  /* background-color: violet; */
+  height: 100%;
+  flex: 1;
+}
+
+.calendarMinutesController {
+  /* background-color: #379; */
+  height: 100%;
+  flex: 1;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.calendarTrimsContainer {
+  display: flex;
+  height: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #379;
+}
+
+.shaded {
+  background-color: rgba(255, 255, 255, 0.2);
+}

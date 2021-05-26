@@ -85,4 +85,9 @@ module ApplicationHelper
     "https://storage.googleapis.com/pets_bucket_1/interface_images/"
   end
 
+  def calendarView(show)
+    if show
+      render partial: 'layouts/datetimeSelector'
+    end
+  end
 end

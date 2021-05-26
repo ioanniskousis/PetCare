@@ -2,42 +2,41 @@
 
   <div class="detailsRow">
     <div class="itemDetail w100">
-      <%= form.label :pet %>
+      <%= form.label :pet_id %>
       <%= form.select :pet_id, options_from_collection_for_select(treatment.user.pets, "id", "name", treatment.pet_id), include_blank: true %>
     </div>
-  </div>
-
-  <div class="detailsRow">
     <div class="itemDetail">
-      <%= form.label :date, "Date & Time" %>
-      <%= form.datetime_select :date %>
+      <label for="dateTimeInput">Date & Time</label>
+      <%= text_field :treatment, :date, { dvalue: treatment.date.strftime('%s'), value: treatment.date.strftime('%a %d-%m-%Y %H:%M'), id: 'dateTimeInput', readonly: true } %>
     </div>
   </div>
 
   <div class="detailsRow">
+    <div class="itemDetail categoryContainer">
+      <%= form.label :category_id %>
+      <%= form.select( :category_id, TreatmentCategory.all.collect { |c| [c.categoryName, c.id] }, {include_blank: '- Select -'} ) %>
+    </div>
     <div class="itemDetail">
       <%= form.label :item %>
       <%= form.text_field :item %>
     </div>
+  </div>
+
+  <div class="detailsRow">
     <div class="itemDetail">
       <%= form.label :cost %>
       <%= form.text_field :cost %>
     </div>
+    <div class="itemDetail">
+      <%= form.label :location %>
+      <%= form.text_field :location %>
+    </div>
   </div>
-
 
   <div class="detailsRow">
     <div class="itemDetail">
       <%= form.label :description %>
       <%= form.text_area :description %>
-    </div>
-  </div>
-
-
-  <div class="detailsRow">
-    <div class="itemDetail">
-      <%= form.label :location %>
-      <%= form.text_field :location %>
     </div>
   </div>
 
@@ -54,3 +53,5 @@
   </div>
 
 <% end %>
+
+<%= javascript_pack_tag 'datetime_form' %>

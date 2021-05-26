@@ -12,7 +12,7 @@
       <h3 ><%= @pet.name + ': Treatment history' %></h3>
       <div class="page-header-links">
         <%= link_to "Back", pet_path(@pet), class: 'pageLink' %>
-        <% if @user == current_user %>
+        <% if @pet.owner == current_user %>
           <%= link_to 'New', new_treatment_path(pet_id: @pet), class: 'pageLink' %>
         <% end %>
       </div>
@@ -34,16 +34,22 @@
       <div class="petDetails">
         <div class="petFields">
           <div class="detailsRow">
-            <div class="itemDetail blueText"><%= treatment.dateCaption %></div>
+            <div class="itemDetail blueText">
+              <%= treatment.dateCaption %>
+            </div>
             <div class="flex">
               <% if @user %>
-                <div class="itemDetail brownText"><%= treatment.pet ? treatment.pet.name : '' %></div>
+                <div class="itemDetail brownText">
+                  <%= treatment.pet ? treatment.pet.name : '' %>
+                </div>
               <% end %>
-              <div class="itemDetail align-right"><%= treatment.location %></div>
+              <div class="itemDetail align-right no-wrap">
+                <%= treatment.location %>
+              </div>
             </div>
           </div>
           <div class="detailsRow">
-            <div class="itemDetail"><%= treatment.item %></div>
+            <div class="itemDetail"><%= categoryItem(treatment) %></div>
             <div class="itemDetail align-right"><%= treatment.cost %></div>
           </div>
           <div class="detailsRow">

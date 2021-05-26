@@ -16,7 +16,7 @@
             <% if @user %>
               <div class="itemDetail brownText"><%= @treatment.pet ? @treatment.pet.name : '' %></div>
             <% end %>
-            <div class="itemDetail align-right"><%= @treatment.location %></div>
+            <div class="itemDetail align-right no-wrap" ><%= @treatment.location %></div>
           </div>
           <div class="detailsRow">
             <div class="itemDetail"><%= @treatment.item %></div>

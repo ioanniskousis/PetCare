@@ -64,6 +64,9 @@ form input[type="password"],
 form input[type="date"],
 form input[type="button"],
 form input[type="submit"],
+form input[type="datetime-local"],
+form input[type="date"],
+form input[type="time"],
 form textarea,
 form select {
   font-family: inherit;
@@ -73,6 +76,10 @@ form select {
   box-sizing: border-box;
   border: 1px solid rgba(128, 128, 128, 0.5);
   border-radius: 4px;
+}
+
+form input[type="datetime-local"] {
+  padding: 8px;
 }
 
 form input[type="submit"],
@@ -157,11 +164,6 @@ form input[type="button"]:active {
   white-space: nowrap;
 }
 
-.top-bar input[type="submit"]:hover,
-.top-bar button:hover {
-  background-color: #000;
-}
-
 /* 
 .top-bar div a {
   display: flex;
@@ -197,8 +199,10 @@ form input[type="button"]:active {
   background-color: transparent;
 }
 
+.top-bar input[type="submit"]:hover,
+.top-bar button:hover,
 .top-bar a:hover {
-  background-color: #000;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .top-bar-link-img {
@@ -224,7 +228,7 @@ form input[type="button"]:active {
   flex: 1;
   font-size: medium;
   padding: 10px;
-  color: #359;
+  color: #379;
 }
 
 .itemDetail input[type="text"],
@@ -233,7 +237,11 @@ form input[type="button"]:active {
 .itemDetail input[type="date"],
 .itemDetail input[type="button"],
 .itemDetail input[type="submit"],
-.itemDetail textarea {
+.itemDetail input[type="datetime-local"],
+.itemDetail input[type="date"],
+.itemDetail input[type="time"],
+.itemDetail textarea,
+.categoryContainer select {
   width: 100%;
 }
 
@@ -335,7 +343,7 @@ div.h100 {
 
 .user-buttons {
   width: 160px;
-  background-color: #379;
+  /* background-color: #379; */
   display: flex;
   justify-content: space-between;
 }
@@ -347,6 +355,6 @@ div.h100 {
   align-items: center;
 }
 
-.user-buttons a:hover {
-  background-color: #999;
+.no-wrap {
+  white-space: nowrap;
 }

@@ -13,12 +13,15 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
+    @showDateTimeSelector = true
     @user = User.find(params[:user_id])
     @appointment = @user.appointments.new
+    @appointment.datetime = DateTime.now
   end
 
   # GET /appointments/1/edit
   def edit
+    @showDateTimeSelector = true
   end
 
   # POST /appointments or /appointments.json

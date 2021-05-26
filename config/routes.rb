@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :treatment_categories
   resources :treatment_photos
-  get '/treatment_photos/delete/:id', to: 'treatment_photos#destroy', as: 'detete_treatment_photo'
+  # get '/treatment_photos/delete/:id', to: 'treatment_photos#destroy', as: 'detete_treatment_photo'
   resources :treatments
   resources :pet_images
   root "home#index"

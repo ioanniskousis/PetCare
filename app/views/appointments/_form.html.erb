@@ -3,8 +3,12 @@
 
   <div class="detailsRow">
     <div class="itemDetail">
-      <%= form.label :datetime %>
-      <%= form.datetime_select :datetime %>
+      <%#= form.label :datetime %>
+      <%#= form.datetime_select :datetime %>
+
+      <label for="dateTimeInput">Date & Time</label>
+      <%= text_field :appointment, :datetime, { dvalue: appointment.datetime.strftime('%s'), value: appointment.datetime.strftime('%a %d-%m-%Y %H:%M'), id: 'dateTimeInput', readonly: true } %>
+
     </div>
     <div class="itemDetail">
       <%= form.label :done %>
@@ -39,3 +43,5 @@
   </div>
 
 <% end %>
+
+<%= javascript_pack_tag 'datetime_form' %>

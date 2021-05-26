@@ -13,6 +13,7 @@
 
   <body>
     <%= render 'layouts/topBar' %>
+    <%= calendarView(@showDateTimeSelector) %>
 
     <main class="main-container">
       <div class="left-border"></div>
@@ -21,8 +22,6 @@
       <%= yield %>
 
     </main
-  
-
   
   </body>
 </html>

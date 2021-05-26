@@ -8,4 +8,13 @@
 </header>
 <div class="page-body">
   <%= render 'form', treatment: @treatment %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= link_to "Delete", treatment_path(@treatment), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    <div class="itemDetail"></div>
+    <div class="itemDetail"></div>
+  </div>
 </div>
+
+<%= javascript_pack_tag 'datetime_edit' %>
