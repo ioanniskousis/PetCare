@@ -47,7 +47,18 @@ function calendarLayout(dateElement, includeTime) {
   handleDragDrop(datetime_selector_bg, calendarContainer);
 
   if (includeTime) {
-    calendarContainer.style.width = "500px";
+    if (bg_rect.width < 500) {
+      calendarContainer.style.width = "300px";
+      calendarContainer.style.flexDirection = 'column'
+      document.getElementById('calendarTimeDivision').style.width = 'unset';
+      document.getElementById('calendarTimeDivision').style.flex = 1;
+    } else {
+      calendarContainer.style.width = "500px";
+      calendarContainer.style.flexDirection = 'row'
+      document.getElementById('calendarTimeDivision').style.width = '200px';
+      document.getElementById('calendarTimeDivision').style.flex = 'unset';
+    }
+    
     document.getElementById('calendarTimeDivision').style.visibility = 'visible';
     document.getElementById('calendarTimeDivision').style.display = 'block';
     document.getElementById('calendarNow').innerHTML = 'Now';
@@ -60,10 +71,10 @@ function calendarLayout(dateElement, includeTime) {
   const calendar_rect = calendarContainer.getBoundingClientRect();
   const top1 = input_rect.top + input_rect.height + 2;
   const top2 = bg_rect.height - calendar_rect.height - 2;
-  const top = (top1 + calendar_rect.height + 2) > bg_rect.height ? top2 : top1;
+  const top = (top1 + calendar_rect.height + 2) > bg_rect.height ? (calendar_rect.height > bg_rect.height ? top1: top2) : top1;
   const left1 = input_rect.left;
   const left2 = bg_rect.width - calendar_rect.width - 2;
-  const left = (left1 + calendar_rect.width + 2) > bg_rect.width ? left2 : left1;
+  const left = (left1 + calendar_rect.width + 2) > bg_rect.width ? (calendar_rect.width > bg_rect.width ? left1 : left2) : left1;
 
   calendarContainer.style.top = top.toString() + "px";
   calendarContainer.style.left = left.toString() + "px";

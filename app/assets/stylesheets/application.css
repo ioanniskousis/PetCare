@@ -348,5 +348,5 @@
   background-color: rgba(128, 128, 128, 0.0);
   z-index: 100;
   visibility: hidden;
-
+  overflow: auto;
 }
