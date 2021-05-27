@@ -21,6 +21,20 @@ module ApplicationHelper
     end
   end
 
+  def linkToLost
+    if current_user
+      tip = content_tag(:div, "Lost Animals", :class => "tiptext bottom")
+      link_to(image_tag('lost.png', class: 'top-bar-link-img-30') + tip, users_path, class: 'tipped', method: :get)
+    end
+  end
+
+  def linkToFound
+    if current_user
+      tip = content_tag(:div, "Found Animals", :class => "tiptext bottom")
+      link_to(image_tag('found.png', class: 'top-bar-link-img-30') + tip, users_path, class: 'tipped', method: :get)
+    end
+  end
+
   def linkToUsers
     if current_user
       tip = content_tag(:div, "Users", :class => "tiptext bottom")

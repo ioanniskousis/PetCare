@@ -210,6 +210,11 @@ form input[type="button"]:active {
   height: 40px;
 }
 
+.top-bar-link-img-30 {
+  width: 30px;
+  height: 30px;
+}
+
 .top-bar-link-img-25 {
   width: 25px;
   height: 25px;
