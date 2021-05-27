@@ -4,6 +4,28 @@ import { last_month_day, nextDateValue } from './date_utils'
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
+function handleDragDrop(datetime_selector_bg, calendarContainer) {
+  datetime_selector_bg.ondragover = (e) => {
+    e.preventDefault();
+  }
+  datetime_selector_bg.ondrop = (e) => {
+    e.preventDefault();
+    const element = document.getElementById(e.dataTransfer.getData("element"));
+    if (element) {
+      const leftShift = parseInt(e.dataTransfer.getData("leftShift"), 10);
+      const topShift = parseInt(e.dataTransfer.getData("topShift"), 10);
+      element.style.top = (e.clientY - topShift).toString() + "px";
+      element.style.left = (e.clientX - leftShift).toString() + "px";
+    }
+  }
+  calendarContainer.ondragstart = (e) => {
+    const calendar_rect = e.target.getBoundingClientRect();
+    e.dataTransfer.setData("element", e.target.id);
+    e.dataTransfer.setData("leftShift", e.clientX - calendar_rect.x);
+    e.dataTransfer.setData("topShift", e.clientY - calendar_rect.y);
+  }
+}
+
 function calendarLayout(dateElement, includeTime) {
   const datetime_selector_bg = document.getElementById('datetime_selector_bg');
   datetime_selector_bg.onmousedown = function(e) {
@@ -21,6 +43,8 @@ function calendarLayout(dateElement, includeTime) {
   const input_rect = dateElement.getBoundingClientRect();
   const calendarContainer = document.getElementById('calendarContainer');
   calendarContainer.setAttribute('caller', dateElement.id);
+
+  handleDragDrop(datetime_selector_bg, calendarContainer);
 
   if (includeTime) {
     calendarContainer.style.width = "500px";
