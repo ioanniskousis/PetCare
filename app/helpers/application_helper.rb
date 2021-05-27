@@ -9,9 +9,7 @@ module ApplicationHelper
 
   def linkToRoot
     tip = content_tag(:div, "Home", :class => "tiptext left bottom")
-    link = link_to(image_tag('home-image.png', class: 'top-bar-link-img') + tip, root_path, class: 'tipped')
-
-    link
+    link_to(image_tag('home-image.png', class: 'top-bar-link-img') + tip, root_path, class: 'tipped')
   end
 
   def linkToDashboard
@@ -24,7 +22,7 @@ module ApplicationHelper
   def linkToLost
     if current_user
       tip = content_tag(:div, "Lost Animals", :class => "tiptext bottom")
-      link_to(image_tag('lost.png', class: 'top-bar-link-img-30') + tip, users_path, class: 'tipped', method: :get)
+      link_to(image_tag('lost.png', class: 'top-bar-link-img-30') + tip, losts_path, class: 'tipped', method: :get)
     end
   end
 

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @lost.comments %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @lost.user_id %>
+</p>
+
+<p>
+  <strong>Resolved:</strong>
+  <%= @lost.resolved %>
+</p>
+
+<%= link_to 'Edit', edit_lost_path(@lost) %> |
+<%= link_to 'Back', losts_path %>

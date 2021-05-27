@@ -252,6 +252,10 @@ form input[type="button"]:active {
   width: 100%;
 }
 
+.itemDetail textarea {
+  resize: vertical;
+}
+
 .radio-detail {
   display: flex;
   flex-wrap: wrap;
