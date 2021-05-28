@@ -93,6 +93,12 @@ module ApplicationHelper
     end
   end
 
+  def linkToMyLost
+    tag.div(class: 'dashboard-button toMyLost') do
+      link_to("Lost Pets", losts_path)
+    end
+  end
+
   def images_store
     "https://storage.googleapis.com/pets_bucket_1/interface_images/"
   end

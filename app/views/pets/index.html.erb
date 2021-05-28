@@ -1,43 +1,39 @@
-
-  <header class="page-header">
-    <%= petsIndexOwnerCaption(@owner) %>
-    <%= petsIndexNewPetLink(@owner) %>
-  </header>
-  <div class="page-body">
-    <% @pets.each do |pet| %>
-      <section>
-        <div class="petPanel">
-          <div class="petDetails">
-            <div class="petFields">
-              <div class="detailsRow">
-                <div class="itemDetail"><%= pet.name %></div>
-                <div class="itemDetail"><%= pet.raceCaption %></div>
-              </div>
-              <div class="detailsRow">
-                <div class="itemDetail"><%= pet.genderCaption %></div>
-                <div class="itemDetail"><%= pet.sterilisedCaption %></div>
-              </div>
-              <div class="detailsRow">
-                <div class="itemDetail"><%= pet.color %></div>
-                <div class="itemDetail"><%= pet.dateOfBirthCaption %></div>
-              </div>
-              <div class="detailsRow">
-                <div class="itemDetail"><%= pet.description %></div>
-              </div>
+<header class="page-header">
+  <%= petsIndexOwnerCaption(@owner) %>
+  <%= petsIndexNewPetLink(@owner) %>
+</header>
+<div class="page-body">
+  <% @pets.each do |pet| %>
+    <section>
+      <div class="petPanel">
+        <div class="petDetails">
+          <div class="petFields">
+            <div class="detailsRow">
+              <div class="itemDetail"><%= pet.name %></div>
+              <div class="itemDetail"><%= pet.raceCaption %></div>
             </div>
-            
-            <%= petPanelLinks(@owner, pet) %>
+            <div class="detailsRow">
+              <div class="itemDetail"><%= pet.genderCaption %></div>
+              <div class="itemDetail"><%= pet.sterilisedCaption %></div>
+            </div>
+            <div class="detailsRow">
+              <div class="itemDetail"><%= pet.color %></div>
+              <div class="itemDetail"><%= pet.dateOfBirthCaption %></div>
+            </div>
+            <div class="detailsRow">
+              <div class="itemDetail"><%= pet.description %></div>
+            </div>
+          </div>
+          
+          <%= petPanelLinks(@owner, pet) %>
 
-          </div>
-          <div class="petPanelImage">
-            <%= petFirstPhoto(pet) %>
-          </div>
         </div>
+        <div class="petPanelImage">
+          <%= petFirstPhoto(pet) %>
+        </div>
+      </div>
 
-      </section>
+    </section>
 
-    <% end %>
-  </div>
-
-
-</main>
+  <% end %>
+</div>
