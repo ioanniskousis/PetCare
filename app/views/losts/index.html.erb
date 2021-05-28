@@ -1,31 +1,32 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header">
+  <h2>Lost animals</h2>
+  <%= link_to 'New Lost', new_lost_path %>
+</header>
+<div class="page-body">
+  <% @losts.each do |lost| %>
+    <section>
+      <div class="petDetails">
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <label>
+              <%= 'Reported by: ' + lost.user.fullname %>
+            </label>
+          </div>
+        </div>
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <%= lost.comments %>
+          </div>
+        </div>
+      </div>
+        <%#= lost.comments %>
+        <%#= lost.user.fullname %>
+        <%#= lost.resolved %>
+        <%#= link_to 'Show', lost %>
+        <%#= link_to 'Edit', edit_lost_path(lost) %>
+        <%#= link_to 'Destroy', lost, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </section>
+    <br/>
+  <% end %>
 
-<h1>Losts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Comments</th>
-      <th>User</th>
-      <th>Resolved</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @losts.each do |lost| %>
-      <tr>
-        <td><%= lost.comments %></td>
-        <td><%= lost.user.fullname %></td>
-        <td><%= lost.resolved %></td>
-        <td><%= link_to 'Show', lost %></td>
-        <td><%= link_to 'Edit', edit_lost_path(lost) %></td>
-        <td><%= link_to 'Destroy', lost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Lost', new_lost_path %>
+</div>

@@ -28,7 +28,7 @@ class LostsController < ApplicationController
 
     respond_to do |format|
       if @lost.save
-        format.html { redirect_to @lost, notice: "Lost was successfully created." }
+        format.html { redirect_to edit_lost_path(@lost), notice: "Lost was successfully created." }
         format.json { render :show, status: :created, location: @lost }
       else
         format.html { render :new, status: :unprocessable_entity }

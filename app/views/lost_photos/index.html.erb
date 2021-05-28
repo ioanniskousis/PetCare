@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lost Photos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lost_photos.each do |lost_photo| %>
+      <tr>
+        <td><%= link_to 'Show', lost_photo %></td>
+        <td><%= link_to 'Edit', edit_lost_photo_path(lost_photo) %></td>
+        <td><%= link_to 'Destroy', lost_photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lost Photo', new_lost_photo_path %>

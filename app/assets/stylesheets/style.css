@@ -238,6 +238,10 @@ form input[type="button"]:active {
   min-width: 250px;
 }
 
+.checkBoxContainer {
+  width: 100px;
+}
+
 .itemDetail input[type="text"],
 .itemDetail input[type="email"],
 .itemDetail input[type="password"],

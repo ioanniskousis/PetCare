@@ -20,19 +20,17 @@
 
   <%= form.hidden_field :user_id %>
 
-  <% if @isnew %>
-    <%= form.hidden_field :resolved %>
-  <% else %>
-    <div class="detailsRow">
-      <div class="itemDetail">
-        <%= form.label :resolved %>
-        <%= form.check_box :resolved, class: "custom-checkbox" %>
-      </div>
-    </div>
-  <% end %>
-
   <div class="detailsRow">
-    <div class="itemDetail"></div>
+    <div class="itemDetail">
+      <% if @isnew %>
+        <%= form.hidden_field :resolved %>
+      <% else %>
+        <div class="checkBoxContainer">
+          <%= form.label :resolved %>
+          <%= form.check_box :resolved, class: "custom-checkbox" %>
+        </div>
+      <% end %>
+    </div>
     <div class="itemDetail"></div>
     <div class="itemDetail">
       <%= form.submit 'Save' %>
