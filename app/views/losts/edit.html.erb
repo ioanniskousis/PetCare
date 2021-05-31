@@ -5,4 +5,50 @@
 
 <div class="page-body">
   <%= render 'form', lost: @lost %>
+
+
+  <div class="petPhotos">
+    <% @lost.photos.each do |photo| %>
+      <% if photo.photo.persisted? %>
+        <div class="petPhotoContainer">
+          <%= link_to edit_lost_photo_path(photo) do %>
+            <div class="petPhotoPanel">
+              <div class="petPhoto">
+              <%= image_tag photo.photo %>
+              </div>
+            </div>
+          <% end %>  
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if @lost.user == current_user %>
+    <div class="addPhotoButtonContainer">
+      <div id="newPhotoFile">
+      </div>
+      <input type="button" id="addPhotoButton" value="Add New Photo">
+    </div>
+
+    <div id="addPetPhotoPanel">
+      <%= form_for(@lost_photo) do |form| %>
+        <%= form.hidden_field :lost_id %>
+        <%= form.file_field :photo, {id: "lost_photo"} %>
+
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <%= form.submit("Save New Photo", {id: "save_image"}) %>
+          </div>
+          <div class="itemDetail">
+            <input type="button" value="Cancel" id="cancelNewPhoto" />
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  <% end %>
+
+  <% if @lost.user == current_user %>
+    <%= javascript_pack_tag 'lost_show' %>
+  <% end %>
 </div>

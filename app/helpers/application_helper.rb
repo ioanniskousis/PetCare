@@ -76,26 +76,34 @@ module ApplicationHelper
   end
 
   def linkToMyPets
-    tag.div(class: 'dashboard-button toMyPets') do
-      link_to("My Pets", pets_path(owner: current_user))
+    tag.div(class: 'dashboard-button-container') do
+      tag.div(class: 'dashboard-button toMyPets') do
+        link_to("My Pets", pets_path(owner: current_user))
+      end
     end
   end
 
   def linkToMyTreatment
-    tag.div(class: 'dashboard-button toMyTreatments') do
-      link_to("Treatment", user_treatments_path(user_id: current_user.id))
+    tag.div(class: 'dashboard-button-container') do
+      tag.div(class: 'dashboard-button toMyTreatments') do
+        link_to("Treatment", user_treatments_path(user_id: current_user.id))
+      end
     end
   end
 
   def linkToMyAppointments
-    tag.div(class: 'dashboard-button toMyAppointments') do
-      link_to("Appointments", user_appointments_path(user_id: current_user.id))
+    tag.div(class: 'dashboard-button-container') do
+      tag.div(class: 'dashboard-button toMyAppointments') do
+        link_to("Appointments", user_appointments_path(user_id: current_user.id))
+      end
     end
   end
 
   def linkToMyLost
-    tag.div(class: 'dashboard-button toMyLost') do
-      link_to("Lost Pets", losts_path)
+    tag.div(class: 'dashboard-button-container') do
+      tag.div(class: 'dashboard-button toMyLost') do
+        link_to("Lost Pets", losts_path)
+      end
     end
   end
 

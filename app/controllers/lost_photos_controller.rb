@@ -22,10 +22,11 @@ class LostPhotosController < ApplicationController
   # POST /lost_photos or /lost_photos.json
   def create
     @lost_photo = LostPhoto.new(lost_photo_params)
+    @lost = @lost_photo.lost
 
     respond_to do |format|
       if @lost_photo.save
-        format.html { redirect_to @lost_photo, notice: "Lost photo was successfully created." }
+        format.html { redirect_to edit_lost_path(@lost), notice: "Lost photo was successfully created." }
         format.json { render :show, status: :created, location: @lost_photo }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +65,6 @@ class LostPhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lost_photo_params
-      params.fetch(:lost_photo, {})
+      params.require(:lost_photo).permit(:lost_id, :photo)
     end
 end

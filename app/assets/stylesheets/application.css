@@ -88,8 +88,17 @@
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
-  padding: 20px 0 0 0;
+  padding: 20px 0;
   /* margin-bottom: 30px; */
+}
+
+.dashboard-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  min-width: 240px;
+  /* background-color: burlywood; */
 }
 
 .dashboard-button {
@@ -99,9 +108,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;
-  height: 120px;
-  min-width: 120px;
+  width: 160px;
+  height: 160px;
+  min-width: 160px;
   border-radius: 50%;
   box-shadow: 0 0 18px 2px rgba(128, 128, 128, 0.7) inset;
   margin: 30px;
@@ -198,6 +207,21 @@
   color: white;
 }
 
+.image-link {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
+
+.pencil-bg {
+  background-image: url('pencil-blue');
+}
+
 .page-body {
   padding: 10px 0;
   height: calc(100% - 40px);
@@ -265,6 +289,12 @@
 .linkBox a:active {
   background-color: #bbb;
 }
+@media only screen and (max-width: 479px) {
+  .dashboard-container {
+    justify-content: flex-start;
+    padding-bottom: 60px;
+  }
+}
 
 @media only screen and (max-width: 529px) {
   .petDetails {
@@ -287,9 +317,6 @@
     width: 90%;
   }
 
-  .dashboard-container {
-    /* padding-top: 120px; */
-  }
 }
 
 .page-body-msg {

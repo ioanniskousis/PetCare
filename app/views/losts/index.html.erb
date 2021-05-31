@@ -1,6 +1,6 @@
 <header class="page-header">
   <h2>Lost animals</h2>
-  <%= link_to 'New Lost', new_lost_path %>
+  <%= link_to 'New', new_lost_path, class: 'pageLink' %>
 </header>
 <div class="page-body">
   <% @losts.each do |lost| %>
@@ -12,6 +12,7 @@
               <%= 'Reported by: ' + lost.user.fullname %>
             </label>
           </div>
+          <%= link_to '', edit_lost_path(lost), class: 'image-link pencil-bg' %>
         </div>
         <div class="detailsRow">
           <div class="itemDetail">

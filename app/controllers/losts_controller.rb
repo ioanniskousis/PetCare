@@ -20,6 +20,7 @@ class LostsController < ApplicationController
 
   # GET /losts/1/edit
   def edit
+    @lost_photo = @lost.photos.new
   end
 
   # POST /losts or /losts.json
@@ -41,7 +42,7 @@ class LostsController < ApplicationController
   def update
     respond_to do |format|
       if @lost.update(lost_params)
-        format.html { redirect_to @lost, notice: "Lost was successfully updated." }
+        format.html { redirect_to losts_path }
         format.json { render :show, status: :ok, location: @lost }
       else
         format.html { render :edit, status: :unprocessable_entity }
