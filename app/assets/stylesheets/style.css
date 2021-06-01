@@ -68,7 +68,8 @@ form input[type="datetime-local"],
 form input[type="date"],
 form input[type="time"],
 form textarea,
-form select {
+form select,
+.addPhotoButtonContainer input[type="button"] {
   font-family: inherit;
   font-size: 15px;
   padding: 10px;
@@ -83,7 +84,8 @@ form input[type="datetime-local"] {
 }
 
 form input[type="submit"],
-form input[type="button"] {
+form input[type="button"],
+.addPhotoButtonContainer input[type="button"] {
   background-color: #379;
   color: white;
   font-size: medium;

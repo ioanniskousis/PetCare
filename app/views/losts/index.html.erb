@@ -12,7 +12,9 @@
               <%= 'Reported by: ' + lost.user.fullname %>
             </label>
           </div>
-          <%= link_to '', edit_lost_path(lost), class: 'image-link pencil-bg' %>
+          <% if lost.user == current_user %>
+            <%= link_to '', edit_lost_path(lost), class: 'image-link pencil-bg' %>
+          <% end %>
         </div>
         <div class="detailsRow">
           <div class="itemDetail">
@@ -20,12 +22,23 @@
           </div>
         </div>
       </div>
-        <%#= lost.comments %>
-        <%#= lost.user.fullname %>
-        <%#= lost.resolved %>
-        <%#= link_to 'Show', lost %>
-        <%#= link_to 'Edit', edit_lost_path(lost) %>
-        <%#= link_to 'Destroy', lost, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div class="petPhotos">
+        <% lost.photos.each do |image| %>
+            <div class="petPhotoContainer">
+              <%= link_to edit_lost_photo_path(image) do %>
+                <div class="petPhotoPanel">
+                  <div class="petPhoto">
+                    <% if image.photo.persisted? %>
+                      <%= image_tag image.photo %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          
+        <% end %>
+      </div>
+
     </section>
     <br/>
   <% end %>

@@ -3,7 +3,13 @@ class LostPhotosController < ApplicationController
 
   # GET /lost_photos or /lost_photos.json
   def index
-    @lost_photos = LostPhoto.all
+    # @lost_photos = LostPhoto.all
+    if params[:lost_id]
+      @lost = Lost.find(params[:lost_id])
+      @lost_photos = @lost.photos
+    else
+      @lost_photos = LostPhoto.all
+    end
   end
 
   # GET /lost_photos/1 or /lost_photos/1.json

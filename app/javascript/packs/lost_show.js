@@ -1,6 +1,6 @@
 function createEvents() {
   const addPhotoButton = document.getElementById("addPhotoButton");
-  const pet_image_photo = document.getElementById("lost_photo");
+  const pet_image_photo = document.getElementById("pet_image_photo");
   const cancelNewPhoto = document.getElementById("cancelNewPhoto");
   const newPhotoFile = document.getElementById("newPhotoFile");
 
