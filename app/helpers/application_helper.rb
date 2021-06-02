@@ -29,7 +29,7 @@ module ApplicationHelper
   def linkToFound
     if current_user
       tip = content_tag(:div, "Found Animals", :class => "tiptext bottom")
-      link_to(image_tag('found.png', class: 'top-bar-link-img-30') + tip, users_path, class: 'tipped', method: :get)
+      link_to(image_tag('found.png', class: 'top-bar-link-img-30') + tip, founds_path, class: 'tipped', method: :get)
     end
   end
 
@@ -103,6 +103,14 @@ module ApplicationHelper
     tag.div(class: 'dashboard-button-container') do
       tag.div(class: 'dashboard-button toMyLost') do
         link_to("Lost Pets", losts_path)
+      end
+    end
+  end
+
+  def linkToMyFound
+    tag.div(class: 'dashboard-button-container') do
+      tag.div(class: 'dashboard-button toMyFound') do
+        link_to("Found Pets", founds_path)
       end
     end
   end

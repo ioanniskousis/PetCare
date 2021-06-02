@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :founds
   resources :lost_photos
   resources :losts
   resources :treatment_categories

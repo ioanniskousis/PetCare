@@ -1,0 +1,32 @@
+<%= form_with(model: found) do |form| %>
+  <% if found.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(found.errors.count, "error") %> prohibited this found from being saved:</h2>
+
+      <ul>
+        <% found.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :comments %>
+    <%= form.text_area :comments %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resolved %>
+    <%= form.check_box :resolved %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

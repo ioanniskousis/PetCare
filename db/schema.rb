@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_061445) do
+ActiveRecord::Schema.define(version: 2021_06_02_074357) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2021_05_28_061445) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "founds", force: :cascade do |t|
+    t.text "comments", null: false
+    t.boolean "resolved"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_founds_on_user_id"
   end
 
   create_table "lost_photos", force: :cascade do |t|
@@ -161,6 +170,7 @@ ActiveRecord::Schema.define(version: 2021_05_28_061445) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "users"
+  add_foreign_key "founds", "users"
   add_foreign_key "losts", "users"
   add_foreign_key "pets", "species"
   add_foreign_key "pets", "users"

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @found.comments %>
+</p>
+
+<p>
+  <strong>Resolved:</strong>
+  <%= @found.resolved %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @found.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_found_path(@found) %> |
+<%= link_to 'Back', founds_path %>
