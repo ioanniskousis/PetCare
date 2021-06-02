@@ -1,0 +1,22 @@
+<%= form_with(model: found_photo) do |form| %>
+  <% if found_photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(found_photo.errors.count, "error") %> prohibited this found_photo from being saved:</h2>
+
+      <ul>
+        <% found_photo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :found_id %>
+    <%= form.text_field :found_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
