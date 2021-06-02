@@ -24,12 +24,17 @@
   </div>
 
   <% if @lost.user == current_user %>
-    <div class="addPhotoButtonContainer">
-      <div id="newPhotoFile">
+    <div class="detailsRow">
+      <div class="addPhotoButtonContainer">
+        <div class="itemDetail">
+          <div id="newPhotoFile">
+          </div>
+        </div>
+        <div class="itemDetail">
+          <input type="button" id="addPhotoButton" value="Add New Photo">
+        </div>
       </div>
-      <input type="button" id="addPhotoButton" value="Add New Photo">
     </div>
-
     <div id="addPetPhotoPanel">
       <%= form_for(@lost_photo) do |form| %>
         <%= form.hidden_field :lost_id %>

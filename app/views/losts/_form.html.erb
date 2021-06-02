@@ -18,22 +18,24 @@
     </div>
   </div>
 
-  <%= form.hidden_field :user_id %>
+  <% if @lost.user === current_user %>
+    <%= form.hidden_field :user_id %>
 
-  <div class="detailsRow">
-    <div class="itemDetail">
-      <% if @isnew %>
-        <%= form.hidden_field :resolved %>
-      <% else %>
-        <div class="checkBoxContainer">
-          <%= form.label :resolved %>
-          <%= form.check_box :resolved, class: "custom-checkbox" %>
-        </div>
-      <% end %>
+    <div class="detailsRow">
+      <div class="itemDetail">
+        <% if @isnew %>
+          <%= form.hidden_field :resolved %>
+        <% else %>
+          <div class="checkBoxContainer">
+            <%= form.label :resolved %>
+            <%= form.check_box :resolved, class: "custom-checkbox" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="itemDetail"></div>
+      <div class="itemDetail">
+        <%= form.submit 'Save' %>
+      </div>
     </div>
-    <div class="itemDetail"></div>
-    <div class="itemDetail">
-      <%= form.submit 'Save' %>
-    </div>
-  </div>
+  <% end %>
 <% end %>

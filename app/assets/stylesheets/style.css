@@ -308,6 +308,13 @@ a.redText {
   justify-content: flex-start;
 }
 
+.flex1 {
+  flex: 1;
+}
+
+.flex2 {
+  flex: 2;
+}
 
 .col-flex-end {
   display: flex;

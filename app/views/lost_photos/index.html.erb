@@ -2,7 +2,7 @@
   <% @lost_photos.each do |image| %>
     
       <div class="petPhotoContainer">
-        <%= link_to edit_llst_photo_path(image) do %>
+        <%= link_to edit_lost_photo_path(image) do %>
           <div class="petPhotoPanel">
             <div class="petPhoto">
               <% if image.photo.persisted? %>

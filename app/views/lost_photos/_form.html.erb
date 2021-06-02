@@ -1,17 +1,31 @@
 <%= form_with(model: lost_photo) do |form| %>
-  <% if lost_photo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lost_photo.errors.count, "error") %> prohibited this lost_photo from being saved:</h2>
 
-      <ul>
-        <% lost_photo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="detailsRow">
+    <div class="itemDetail flex2">
+      <div id="newPhotoFile">
+      </div>
+    </div>
+    <% if @lost_photo.lost.user == current_user %>
+      <div class="itemDetail flex1" id="selectPhotoButtonContainer">
+        <input type="button" id="selectPhotoButton" value="Select Photo">
+      </div>
+      <div class="itemDetail flex1" id="cancelUpdatePetImagePanel">
+        <input type="button" value="Cancel" id="cancelUpdatePetImageButton" />
+      </div>
+    <% end %>
+  </div>
+
+  <%= form.file_field :photo, {id: "pet_image_photo"} %>
+
+  <% if lost_photo.lost.user == current_user %>
+    <div class="detailsRow">
+      <div class="itemDetail linkBox flex-start flex2">
+        <%= link_to 'Delete this Photo', lost_photo_path(@lost_photo, lost_id: @lost_photo.lost_id), method: :delete, data: { confirm: 'Are you sure you want to Delete this Photo ?' }, class: "redText" %>
+      </div>
+
+      <div class="itemDetail flex1">
+        <%= form.submit "Update" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

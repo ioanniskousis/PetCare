@@ -1,6 +1,19 @@
-<h1>Editing Lost Photo</h1>
+<header class="page-header">
+  <h3>Edit lost animal Photo</h3>
+  <%= link_to "Back", edit_lost_path(@lost_photo.lost), class: 'pageLink' %>
+</header>
 
-<%= render 'form', lost_photo: @lost_photo %>
+<div class="page-body">
+  <div class="petPhotoPanel">
+    <div class="petPhotoEdit">
+      <% if @lost_photo.photo.persisted? %>
+        <%= image_tag @lost_photo.photo %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'form', lost_photo: @lost_photo %>
+</div>
 
-<%= link_to 'Show', @lost_photo %> |
-<%= link_to 'Back', lost_photos_path %>
+<% if @lost_photo.lost.user == current_user %>
+  <%= javascript_pack_tag 'pet_edit' %>
+<% end %>

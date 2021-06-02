@@ -45,7 +45,7 @@ class LostPhotosController < ApplicationController
   def update
     respond_to do |format|
       if @lost_photo.update(lost_photo_params)
-        format.html { redirect_to @lost_photo, notice: "Lost photo was successfully updated." }
+        format.html { redirect_to edit_lost_path(@lost_photo.lost), notice: "Lost photo was successfully updated." }
         format.json { render :show, status: :ok, location: @lost_photo }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,9 +56,10 @@ class LostPhotosController < ApplicationController
 
   # DELETE /lost_photos/1 or /lost_photos/1.json
   def destroy
+    @lost = @lost_photo.lost
     @lost_photo.destroy
     respond_to do |format|
-      format.html { redirect_to lost_photos_url, notice: "Lost photo was successfully destroyed." }
+      format.html { redirect_to edit_lost_path(@lost)}
       format.json { head :no_content }
     end
   end
