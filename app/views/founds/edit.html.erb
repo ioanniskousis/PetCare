@@ -1,6 +1,59 @@
-<h1>Editing Found</h1>
+<header class="page-header">
+  <h3>Edit found animal record</h3>
+  <%= link_to "Back", founds_path, class: 'pageLink' %>
+</header>
 
-<%= render 'form', found: @found %>
+<div class="page-body">
+  <%= render 'form', found: @found %>
 
-<%= link_to 'Show', @found %> |
-<%= link_to 'Back', founds_path %>
+
+  <div class="petPhotos">
+    <% @found.photos.each do |photo| %>
+      <% if photo.photo.persisted? %>
+        <div class="petPhotoContainer">
+          <%= link_to edit_found_photo_path(photo) do %>
+            <div class="petPhotoPanel">
+              <div class="petPhoto">
+              <%= image_tag photo.photo %>
+              </div>
+            </div>
+          <% end %>  
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if @found.user == current_user %>
+    <div class="detailsRow">
+      <div class="addPhotoButtonContainer">
+        <div class="itemDetail">
+          <div id="newPhotoFile">
+          </div>
+        </div>
+        <div class="itemDetail">
+          <input type="button" id="addPhotoButton" value="Add New Photo">
+        </div>
+      </div>
+    </div>
+    <div id="addPetPhotoPanel">
+      <%= form_for(@found_photo) do |form| %>
+        <%= form.hidden_field :found_id %>
+        <%= form.file_field :photo, {id: "pet_image_photo"} %>
+
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <%= form.submit("Save New Photo", {id: "save_image"}) %>
+          </div>
+          <div class="itemDetail">
+            <input type="button" value="Cancel" id="cancelNewPhoto" />
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  <% end %>
+
+  <% if @found.user == current_user %>
+    <%= javascript_pack_tag 'lost_show' %>
+  <% end %>
+</div>

@@ -3,7 +3,12 @@ class FoundPhotosController < ApplicationController
 
   # GET /found_photos or /found_photos.json
   def index
-    @found_photos = FoundPhoto.all
+    if params[:found_id]
+      @found = found.find(params[:found_id])
+      @found_photos = @found.photos
+    else
+      @found_photos = FoundPhoto.all
+    end
   end
 
   # GET /found_photos/1 or /found_photos/1.json
@@ -22,10 +27,10 @@ class FoundPhotosController < ApplicationController
   # POST /found_photos or /found_photos.json
   def create
     @found_photo = FoundPhoto.new(found_photo_params)
-
+    @found = @found_photo.found
     respond_to do |format|
       if @found_photo.save
-        format.html { redirect_to @found_photo, notice: "Found photo was successfully created." }
+        format.html { redirect_to edit_found_path(@found), notice: "Found photo was successfully created." }
         format.json { render :show, status: :created, location: @found_photo }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +43,7 @@ class FoundPhotosController < ApplicationController
   def update
     respond_to do |format|
       if @found_photo.update(found_photo_params)
-        format.html { redirect_to @found_photo, notice: "Found photo was successfully updated." }
+        format.html { redirect_to edit_found_path(@found_photo.found), notice: "Found photo was successfully updated." }
         format.json { render :show, status: :ok, location: @found_photo }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,9 +54,10 @@ class FoundPhotosController < ApplicationController
 
   # DELETE /found_photos/1 or /found_photos/1.json
   def destroy
+    @found = @found_photo.found
     @found_photo.destroy
     respond_to do |format|
-      format.html { redirect_to found_photos_url, notice: "Found photo was successfully destroyed." }
+      format.html { redirect_to edit_found_path(@found), notice: "Found photo was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -64,6 +70,6 @@ class FoundPhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def found_photo_params
-      params.require(:found_photo).permit(:found_id)
+      params.require(:found_photo).permit(:found_id, :photo)
     end
 end

@@ -1,6 +1,19 @@
-<h1>Editing Found Photo</h1>
+<header class="page-header">
+  <h3>Edit found animal Photo</h3>
+  <%= link_to "Back", edit_found_path(@found_photo.found), class: 'pageLink' %>
+</header>
 
-<%= render 'form', found_photo: @found_photo %>
+<div class="page-body">
+  <div class="petPhotoPanel">
+    <div class="petPhotoEdit">
+      <% if @found_photo.photo.persisted? %>
+        <%= image_tag @found_photo.photo %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'form', found_photo: @found_photo %>
+</div>
 
-<%= link_to 'Show', @found_photo %> |
-<%= link_to 'Back', found_photos_path %>
+<% if @found_photo.found.user == current_user %>
+  <%= javascript_pack_tag 'pet_edit' %>
+<% end %>

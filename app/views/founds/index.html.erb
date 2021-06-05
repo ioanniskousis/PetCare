@@ -1,31 +1,46 @@
-<p id="notice"><%= notice %></p>
+<header class="page-header">
+  <h2>Found animals</h2>
+  <%= link_to 'New', new_found_path, class: 'pageLink' %>
+</header>
+<div class="page-body">
+  <% @founds.each do |found| %>
+    <section>
+      <div class="petDetails">
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <label>
+              <%= 'Reported by: ' + found.user.fullname %>
+            </label>
+          </div>
+          <% if found.user == current_user %>
+            <%= link_to '', edit_found_path(found), class: 'image-link pencil-bg' %>
+          <% end %>
+        </div>
+        <div class="detailsRow">
+          <div class="itemDetail">
+            <%= found.comments %>
+          </div>
+        </div>
+      </div>
+      <div class="petPhotos">
+        <% found.photos.each do |image| %>
+            <div class="petPhotoContainer">
+              <%= link_to edit_found_photo_path(image) do %>
+                <div class="petPhotoPanel">
+                  <div class="petPhoto">
+                    <% if image.photo.persisted? %>
+                      <%= image_tag image.photo %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          
+        <% end %>
+      </div>
 
-<h1>Founds</h1>
+    </section>
+    <br/>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Comments</th>
-      <th>Resolved</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @founds.each do |found| %>
-      <tr>
-        <td><%= found.comments %></td>
-        <td><%= found.resolved %></td>
-        <td><%= found.user_id %></td>
-        <td><%= link_to 'Show', found %></td>
-        <td><%= link_to 'Edit', edit_found_path(found) %></td>
-        <td><%= link_to 'Destroy', found, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Found', new_found_path %>
+</div>

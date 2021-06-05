@@ -12,11 +12,15 @@ class FoundsController < ApplicationController
 
   # GET /founds/new
   def new
+    @isnew = true
     @found = Found.new
+    @found.user = current_user
+    @found.resolved = false
   end
 
   # GET /founds/1/edit
   def edit
+    @found_photo = @found.photos.new
   end
 
   # POST /founds or /founds.json
@@ -25,7 +29,7 @@ class FoundsController < ApplicationController
 
     respond_to do |format|
       if @found.save
-        format.html { redirect_to @found, notice: "Found was successfully created." }
+        format.html { redirect_to edit_found_path(@found), notice: "Found was successfully created." }
         format.json { render :show, status: :created, location: @found }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +42,7 @@ class FoundsController < ApplicationController
   def update
     respond_to do |format|
       if @found.update(found_params)
-        format.html { redirect_to @found, notice: "Found was successfully updated." }
+        format.html { redirect_to founds_path, notice: "Found was successfully updated." }
         format.json { render :show, status: :ok, location: @found }
       else
         format.html { render :edit, status: :unprocessable_entity }

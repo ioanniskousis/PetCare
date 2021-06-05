@@ -1,5 +1,8 @@
-<h1>New Found</h1>
+<header class="page-header">
+  <h2>Declare found animal</h2>
+  <%= link_to "Index", founds_path, class: 'pageLink' %>
+</header>
 
-<%= render 'form', found: @found %>
-
-<%= link_to 'Back', founds_path %>
+<div class="page-body">
+  <%= render 'form', found: @found %>
+</div>

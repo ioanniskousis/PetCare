@@ -11,22 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :comments %>
-    <%= form.text_area :comments %>
+  <div class="detailsRow">
+    <div class="itemDetail">
+      <%= form.label :comments %>
+      <%= form.text_area :comments, {rows: 10} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :resolved %>
-    <%= form.check_box :resolved %>
-  </div>
+  <% if @found.user === current_user %>
+    <%= form.hidden_field :user_id %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="detailsRow">
+      <div class="itemDetail">
+        <% if @isnew %>
+          <%= form.hidden_field :resolved %>
+        <% else %>
+          <div class="checkBoxContainer">
+            <%= form.label :resolved %>
+            <%= form.check_box :resolved, class: "custom-checkbox" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="itemDetail"></div>
+      <div class="itemDetail">
+        <%= form.submit 'Save' %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
