@@ -43,7 +43,8 @@ module ApplicationHelper
   def startChatButton
     if current_user
       tip = content_tag(:div, "Chat", :class => "tiptext bottom")
-      button_tag(image_tag('chat.png', class: 'top-bar-link-img-25') + tip, id: 'startChatButton', class: 'tipped', onClick: 'chat_clicked()')
+      # button_tag(image_tag('chat.png', class: 'top-bar-link-img-25') + tip, id: 'startChatButton', class: 'tipped', onClick: 'chat_clicked()')
+      link_to(image_tag('chat.png', class: 'top-bar-link-img-25') + tip, chat_index_path, class: 'tipped', method: :get)
     end
   end
 
