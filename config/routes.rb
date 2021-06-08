@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chat/index'
   resources :found_photos
   resources :founds
   resources :lost_photos
