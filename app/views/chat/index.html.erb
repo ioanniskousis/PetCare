@@ -1,20 +1,17 @@
-<div id="chatmain">
-  <h2>Chat room</h2>
-  <div id="chat_body">
-    <div id="messages">
-    </div>
-    <form id="send_message" class="chat-form">
-      <input type="text" id="message" name="message">
-      <button>Send</button>
-    </form>
-  </div>
-  <div id="modal">
-    <div>
-      <h4>Add a name</h4>
-      <form id="set_name" class="chat-form">
-        <input type="text" id="add_name" name="add_name">
-        <button>Submit</button>
+<header class="page-header">
+  <h3>Users' Chat Room</h3>
+</header>
+<div class="page-body">
+  <div id="chatmain">
+    <div id="chat_body">
+      <div id="messages">
+      </div>
+      <form id="send_message" class="chat-form">
+        <input type="text" id="message" name="message" autofocus>
+        <button>Send</button>
       </form>
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag 'chat' %>

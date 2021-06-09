@@ -17,13 +17,13 @@ Turbolinks.start()
 ActiveStorage.start()
 
 $(document).on('turbolinks:load', function () {
-  $("form#set_name").on('submit', function(e){
-    e.preventDefault();
-    let name = $('#add_name').val();
-    sessionStorage.setItem('chat_room_name', name)
-    chatRoomChannel.announce({ name, type: 'join'})
-    $("#modal").css('display', 'none');
-  });
+  // $("form#set_name").on('submit', function(e){
+  //   e.preventDefault();
+  //   let name = $('#add_name').val();
+  //   sessionStorage.setItem('chat_room_name', name)
+  //   chatRoomChannel.announce({ name, type: 'join'})
+  //   $("#modal").css('display', 'none');
+  // });
 
   $("form#send_message").on('submit', function(e){
     e.preventDefault();
@@ -34,8 +34,9 @@ $(document).on('turbolinks:load', function () {
     }
   });
 
-  $(window).on('beforeunload', function() {
-    let name = sessionStorage.getItem('chat_room_name')
-    chatRoomChannel.announce({ name, type: 'leave'})
-  });
+  // $(window).on('beforeunload', function() {
+    // let name = document.getElementById('current_user_name').innerHTML;
+    // sessionStorage.getItem('chat_room_name')
+    // chatRoomChannel.announce({ name, type: 'leave'})
+  // });
 })

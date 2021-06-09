@@ -1,9 +1,8 @@
 module ApplicationHelper
   def currentUserTopLabel
-    if current_user
-      tag.div(class: "topLabel") do
-        current_user.fullname
-      end
+    current_user_name = current_user ? current_user.fullname : ''
+    tag.div(id: "current_user_name", class: "topLabel") do
+      current_user_name
     end
   end
 

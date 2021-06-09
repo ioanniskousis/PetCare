@@ -3,92 +3,98 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 #chatmain {
-  height: 100vh;
-  background-color: bisque;
-  overflow: auto;
-
-  h2 {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+  height: 100%;
 
   >div#chat_body {
-    height: 90vh;
-    background-color: black;
-    width: 80%;
-    margin: auto;
-    border-radius: 5px;
+    height: 100%;
     overflow: auto;
     position: relative;
 
     div#messages {
-      height: 90%;
-      width: 95%;
-      color: white;
-      margin: 14px auto;
+      height: calc(100% - 40px);
+      color: #333;
       overflow: auto;
       display: flex;
       flex-direction: column;
+      padding: 0 20px 20px 20px;
+      transition: all 0.5s ease-in-out;
+      font-size: medium;
+
+      label {
+        color: brown;
+      }
 
       p {
         display: inline-block;
-        padding: 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        margin-bottom: 5px;
-        margin-top: 5px;
+        padding: 4px;
+        // border-top-left-radius: 10px;
+        // border-top-right-radius: 10px;
+        margin-bottom: 0;
+        margin-top: 0;
         max-width: 70%;
         width: max-content;
+        font-size: medium;
 
         &.received {
-          background-color: chocolate;
-          border-bottom-right-radius: 10px;
+          // background-color: chocolate;
+          color: #379;
+          // border-bottom-right-radius: 10px;
         }
 
         &.sent {
-          border-bottom-left-radius: 10px;
-          background-color: darkred;
+          // border-bottom-left-radius: 10px;
+          // background-color: darkred;
           align-self: flex-end;
+          color: brown;
         }
 
         &.announce {
           align-self: center;
           font-style: italic;
-          color: cyan;
+          // color: cyan;
 
           em {
             font-weight: 700;
-            color: mediumorchid;
+            // color: mediumorchid;
           }
         }
       }
     }
 
     form#send_message {
-      width: 95%;
-      margin: auto;
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      // margin: auto;
 
       input {
         height: 30px;
-        width: 90%;
-        border-radius: 10px;
+        width: calc(100% - 80px);
+        border-radius: 2px;
         border: 0;
       }
 
       button {
-        height: 35px;
-        width: 8.8%;
-        border-radius: 20px;
+        height: 30px;
+        width: 60px;
+        margin: 0 4px;
+        border-radius: 2px;
         border: 0;
-        background-color: tomato;
-        color: white;
+        background-color: #ccc;
+        color: #379;
+        font-size: medium;
+        padding: 4px 10px;
       }
     }
 
   }
   div#modal {
-    height: 100vh;
+    height: calc(100vh - 40px);
     position: absolute;
     top: 0;
     background-color: #000000bf;
